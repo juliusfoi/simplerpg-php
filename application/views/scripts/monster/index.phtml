@@ -1,0 +1,15 @@
+<div id="content"></div>
+<br /><br /><center>View script for controller <b>Monster</b> and script/action name <b>index</b></center>
+<?php foreach ($this->monsters as $entry): ?>
+<br />
+<?php echo $this->ajaxLink(
+					"Attack!".$entry->name, 
+					'/monster/attack/id/'.$entry->id, 
+					array('update' => '#content', 'noscript' => false, 'dataType' => 'Html')); 
+?><br />
+<?php echo (string)$entry->Id; ?><br />
+<?php echo $entry->health; ?><br />
+<?php echo $entry->attackDamage; ?><br />
+<a href="/monster/attack/id/<?php echo $entry->id; ?>/" >attack</a>
+<br />
+<?php endforeach; ?>
