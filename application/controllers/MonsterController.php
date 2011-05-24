@@ -32,7 +32,8 @@ class MonsterController extends Zend_Controller_Action
     	$player = new Application_Model_Player();
     	$monster->setId($id);
     	$battle = new Irontouch_Battle_Battle($player, $monster);
-    	$this->view->monsterNewHealth = array('newHealth' => $battle->do());
+    	$newHealth = $battle->init();
+    	$this->view->newHealth = array("newHealth" => $newHealth);
     }
     
     public function addAction()
