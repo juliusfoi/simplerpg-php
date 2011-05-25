@@ -10,3 +10,8 @@ INSERT INTO player (name, hero, health, mana, attackDamage, defense, experience)
 	37,
 	20,
 	0);
+	
+INSERT INTO monster (name, health, attackDamage) VALUES
+	('defaultMonster',
+	500,
+	50);

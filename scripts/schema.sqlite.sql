@@ -14,3 +14,11 @@ CREATE TABLE player (
 );
  
 CREATE INDEX "id" ON "player" ("id");
+
+
+CREATE TABLE monster (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR(32) NOT NULL,
+	health INTEGER,
+	attackDamage INTEGER
+);

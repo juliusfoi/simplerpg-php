@@ -105,7 +105,7 @@ class Application_Model_Player
     
 	public function getAttackDamage()
     {
-    	return $this->_attackDamage();	
+    	return $this->_attackDamage;	
     }
     
     public function setAttackDamage($attackDamage)

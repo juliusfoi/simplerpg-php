@@ -10,8 +10,11 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $mapper = new Application_Model_MonsterMapper();
-        $this->view->entries = $mapper->fetchAll();
+        $monsterMapper = new Application_Model_MonsterMapper();
+        $playerMapper = new Application_Model_PlayerMapper();
+        
+        $this->view->entries = $monsterMapper->fetchAll();
+        $this->view->players = $playerMapper->fetchAll();
     }
 
 

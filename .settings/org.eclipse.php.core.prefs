@@ -1,5 +1,5 @@
-#Tue May 24 22:59:15 CEST 2011
+#Wed May 25 14:46:21 CEST 2011
 eclipse.preferences.version=1
-include_path=0;/simplerpg\u00051;C\:/Users/faits/Dropbox/Irontouch.Games/simplerpg/library/Zend\u00051;C\:/Users/faits/Dropbox/Irontouch.Games/simplerpg/library/ZendX\u00051;C\:/Users/faits/Dropbox/Irontouch.Games/simplerpg/library/Irontouch
+include_path=1;C\:/Users/fait/simplerpg-php/library
 phpVersion=php5.3
 use_asp_tags_as_php=false

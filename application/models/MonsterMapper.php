@@ -45,7 +45,7 @@ class Application_Model_MonsterMapper
         }
     }
     
-    public function savee(Application_Model_Monster $model)
+    public function save(Application_Model_Monster $model)
     {
     	$data = array(
     			'name' => $model->getName(),

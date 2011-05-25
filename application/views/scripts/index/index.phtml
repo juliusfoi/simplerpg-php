@@ -26,27 +26,59 @@
         background-image: url(http://framework.zend.com/images/bkg_body-bottom.gif);
         height: 100%;
     }
+    
+    p.listHeading
+    {
+    	background-color:lightgrey;
+    }
+    
+    span.headBarText
+    {
+    	color:white;
+    	font-family: Verdana;
+    }
+    
+    div.simpleList
+    {
+    	max-width:450px;
+    }
+    
+    div.headBar
+    {
+    	background-color:black;
+    	height:60px;
+    	padding-top:10px;
+    	padding-left:70px;
+    }
+    
 </style>
-<div id="welcome">
-    <h1>Welcome to the <span id="zf-name">Zend Framework!</span></h1>
-
-    <h3>This is your project's main page</h3>
-
-    <div id="more-information">
-        <p><img src="http://framework.zend.com/images/PoweredBy_ZF_4LightBG.png" /></p>
-        <p>
-            Helpful Links: <br />
-            <a href="http://framework.zend.com/">Zend Framework Website</a> |
-            <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-        </p>
-    </div>
+<div class="headBar" >
+	<span class="headBarText" >Main - Profile - Battle - Quest</span>
 </div>
-<?php foreach ($this->entries as $entry): ?>
-<br />
-<?php 
-	echo $entry->name;
-	echo $entry->health;
-	echo $entry->attackDamage;
-?>
-<br />
-<?php endforeach; ?>
+<div class="simpleList" style="float:left;margin-right:30px;margin-left:30px;">
+	<p class="listHeading">List of all Players</p>
+	<?php foreach ($this->players as $entry): ?>
+	<br />
+	<?php 
+		echo $entry->name."&nbsp;&nbsp;";
+		echo $entry->health."&nbsp;&nbsp;";
+		echo $entry->attackDamage."&nbsp;&nbsp;";
+	?>
+	<br />
+	<?php endforeach; ?>
+</div>
+<div class="simpleList">
+	<p class="listHeading">List of all Monsters</p>
+	<?php foreach ($this->entries as $entry): ?>
+	<br />
+	<?php 
+		echo $this->ajaxLink("Attack ".$entry->name,
+							'/monster/attack/id/'.$entry->id,
+							array('update' => '#content', 'noscript' => false, 'dataType' => 'Html')
+								);
+		echo "&nbsp;&nbsp;&nbsp;".$entry->health."&nbsp;&nbsp;";
+		echo $entry->attackDamage."&nbsp;&nbsp;";
+	?>
+	<br />
+	<?php endforeach; ?>
+</div>

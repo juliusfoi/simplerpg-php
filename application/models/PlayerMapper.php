@@ -58,6 +58,25 @@ class Application_Model_PlayerMapper
                   ->setDefense($row->defense)
                   ->setExperience($row->experience);
     }
+    
+    public function fetchAll()
+    {
+        $resultSet = $this->getDbTable()->fetchAll();
+        $entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Application_Model_Player();
+            $entry->setId($row->id)
+                  ->setName($row->name)
+                  ->setHero($row->hero)
+                  ->setHealth($row->health)
+                  ->setMana($row->mana)
+                  ->setAttackDamage($row->attackDamage)
+                  ->setDefense($row->defense)
+                  ->setExperience($row->experience);
+            $entries[] = $entry;
+        }
+        return $entries;
+    }
 
 }
 
