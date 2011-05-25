@@ -31,7 +31,7 @@ class Irontouch_Battle_Battle
 		
 		$this->_monster->health -= (int) $this->_player->attackDamage;
 		$this->_player->health -= (int) $this->_monster->attackDamage;
-		$monsterMapper->update($this->_monster);
+		$monsterMapper->save($this->_monster);
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
 		$this->finished = true;
@@ -53,6 +53,6 @@ class Irontouch_Battle_Battle
 	
 	public function getUpdatedValues()
 	{
-		return array("player" => $this->_player, "monster" => $this->_monster, "rewarded" => $this->rewarded);
+		return array("player" => (array)$this->_player, "monster" => (array)$this->_monster, "rewarded" => $this->rewarded);
 	}
 }
