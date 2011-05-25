@@ -2,8 +2,12 @@
 
 class Irontouch_Battle_Battle
 {
+	public $finished;
+	public $rewarded;
 	protected $_monster;
 	protected $_player;
+	private $_monsterMapper;
+	private $_playerMapper;
 	
 	public function __construct(Application_Model_Player $player, Application_Model_Monster $monster)
 	{
@@ -19,16 +23,36 @@ class Irontouch_Battle_Battle
 	
 	public function init()
 	{
-		$playerMapper = new Application_Model_PlayerMapper();
-		$monsterMapper = new Application_Model_MonsterMapper();
+		$this->_playerMapper = $playerMapper = new Application_Model_PlayerMapper();
+		$this->_monsterMapper = $monsterMapper = new Application_Model_MonsterMapper();
 		
-		$playerMapper->find(1, $this->_player);
-		$attackDamage = (int) $this->_player->attackDamage;
+		$playerMapper->find($this->_player->id, $this->_player);
+		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
-		$this->_monster->health = (-$attackDamage);
+		$this->_monster->health -= (int) $this->_player->attackDamage;
+		$this->_player->health -= (int) $this->_monster->attackDamage;
 		$monsterMapper->update($this->_monster);
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
-		return $this->_monster->health;
+		$this->finished = true;
+		
+		return $this;
+	}
+	
+	public function reward()
+	{
+		if($this->finished)
+		{
+			$this->_player->experience += $this->_monster->getHealth() / 10;
+			$this->_playerMapper->save($this->_player);
+			$this->rewarded = true;
+			return $this;
+		}
+		return $this;
+	}
+	
+	public function getUpdatedValues()
+	{
+		return array("player" => $this->_player, "monster" => $this->_monster, "rewarded" => $this->rewarded);
 	}
 }

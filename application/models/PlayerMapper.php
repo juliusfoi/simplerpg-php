@@ -77,6 +77,30 @@ class Application_Model_PlayerMapper
         }
         return $entries;
     }
-
+    
+    public function update(Application_Model_Player $model)
+    {
+    	$data = array(
+    			'name' => $model->getName(),
+    			'hero' => $model->getHero(),
+    			'health' => new Zend_Db_Expr('health + '.$model->getHealth()),
+    			'mana' => new Zend_Db_Expr('mana + '.$model->getMana()),
+    			'defense' => new Zend_Db_Expr('defense + '.$model->getDefense()),
+    			'attackDamage' => new Zend_Db_Expr('attackDamage + '.$model->getAttackDamage()),
+    			'experience' => new Zend_Db_Expr('experience + '.$model->getExperience())
+    					);
+    	$id = $model->getId();
+    	foreach($data as $key => $value)
+    	{
+    		if($value == null || !isset($value) || $value == '')
+    			unset($data[$key]);
+    	}
+    	if (null === $id ) {
+            unset($data['id']);
+            $this->getDbTable()->insert($data);
+        } else {
+            $this->getDbTable()->update($data, array('id = ?' => $id));
+        }
+    }
 }
 
