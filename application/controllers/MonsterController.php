@@ -25,6 +25,7 @@ class MonsterController extends Zend_Controller_Action
     
     public function attackAction()
     {
+    	$this->_helper->layout()->disableLayout();
     	$id = $this->_getParam("id", null);
     	if($id == null)
     		return;
@@ -39,6 +40,7 @@ class MonsterController extends Zend_Controller_Action
     
     public function addAction()
     {
+    	$this->_helper->layout()->disableLayout();
     	$monster = new Application_Model_Monster();
     	$monster->setName($this->_getParam("name", ""))
     			->setHealth($this->_getParam("health", 0))

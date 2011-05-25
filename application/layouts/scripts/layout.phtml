@@ -1,9 +1,11 @@
 <?php echo $this->doctype(); ?>
 <html>
 <head>
-<?php echo $this->jQuery();?>
+<?php echo $this->jQuery()->uiEnable()->addOnLoad("$('#loadingBattle').hide();")->addJavascriptFile('/webscripts/getscript/script/battle.js');?>
+
 </head>
 <body>
+<div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;" >battling monster...</span></div>
 <?php echo $this->layout()->content; ?>
 </body>
 </html>

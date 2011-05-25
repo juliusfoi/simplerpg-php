@@ -10,12 +10,16 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="getscript"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Player">
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Monster">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Webscripts">
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
@@ -54,6 +58,15 @@
           <viewControllerScriptsDirectory forControllerName="player">
             <viewScriptFile forActionName="profile"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Webscripts">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="getscript"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="webscripts">
+            <viewScriptFile forActionName="getscript"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -90,6 +103,7 @@
         <testApplicationControllerDirectory>
           <testApplicationControllerFile filesystemName="PlayerControllerTest.php"/>
           <testApplicationControllerFile filesystemName="MonsterControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="WebscriptsControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
