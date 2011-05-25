@@ -46,7 +46,7 @@ class MonsterController extends Zend_Controller_Action
 		$this->_helper->layout()->disableLayout();
 		$id = $this->_getParam("id", null);
 		if($id == null)
-		return;
+			return;
 		$monster = new Application_Model_Monster();
 		$player = new Application_Model_Player();
 		$monster->setId($id);
@@ -61,8 +61,8 @@ class MonsterController extends Zend_Controller_Action
 		$this->_helper->layout()->disableLayout();
 		$monster = new Application_Model_Monster();
 		$monster->setName($this->_getParam("name", ""))
-		->setHealth($this->_getParam("health", 0))
-		->setAttackDamage($this->_getParam("attackDamage", 0));
+				->setHealth($this->_getParam("health", 0))
+				->setAttackDamage($this->_getParam("attackDamage", 0));
 		$mapper = new Application_Model_MonsterMapper();
 		$mapper->save($monster);
 	}
