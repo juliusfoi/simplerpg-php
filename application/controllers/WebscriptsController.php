@@ -26,7 +26,7 @@ class WebscriptsController extends Zend_Controller_Action
 	{
 		$this->_helper->layout()->disableLayout();
 		$this->_helper->viewRenderer->setNoRender(true);
-		$this->_scripts = array('battle.js', 'jQuery.js', 'jQueryUI.js', 'main.js');
+		$this->_scripts = array('battle.js', 'jQuery.js', 'jQueryUI.js', 'main.js', 'json.js');
 	}
 
 	public function indexAction()

@@ -16,9 +16,27 @@
     You should have received a copy of the GNU General Public License
     along with SimpleRPG.  If not, see <http://www.gnu.org/licenses/>.
 */
+function updatePlayer(player){
+	$("div.player").children("span.playerHealth").text("Health "+player.health.toString());
+	$("div.player").children("span.playerExperience").text("Experience "+player.experience.toString());
+}
+
+function updateMonster(monster){
+	$("div.monster").children("span.monsterName").text(monster.name.toString()+"&nbsp;&nbsp;");
+	$("div.monster").children("span.monsterHealth").text(monster.health.toString()+"&nbsp;&nbsp;");
+	$("div.monster").children("span.monsterAttackDamage").text(monster.attackDamage.toString()+"&nbsp;&nbsp;");
+}
 function loadingBattle(){
 	$('#loadingBattle').show();
 }
-function loadingBattleFinished(){
+function loadingBattleFinished(data){
+	var jsonObject = jQuery.parseJSON(data);
+	alert(jsonObject);
+	var player = data.updatedValues.player;
+	var monster = data.updatedValues.monster;
+	updatePlayer(player);
+	updateMonster(monster, selector);
 	$('#loadingBattle').hide();
 }
+
+
