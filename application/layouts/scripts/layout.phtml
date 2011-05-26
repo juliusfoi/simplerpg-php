@@ -1,7 +1,7 @@
 <?php echo $this->doctype(); ?>
 <html>
 <head>
-<?php echo $this->jQuery()->uiEnable()->addOnLoad("$('#loadingBattle').hide();")->addJavascriptFile('/webscripts/getscript/script/battle.js');?>
+<?php echo $this->jQuery()->uiEnable()->addOnLoad('$.getJSON("/monster/attack/id/1", loadingBattleFinished(data));')->addOnLoad("$('#loadingBattle').hide();")->addJavascriptFile('/webscripts/getscript/script/battle.js');?>
 <style>
     a:link,
     a:visited

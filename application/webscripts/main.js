@@ -1,0 +1,1 @@
+$.getJSON("/monster/attack/id/", loadingBattleFinished(data));

@@ -29,13 +29,12 @@ function updateMonster(monster){
 function loadingBattle(){
 	$('#loadingBattle').show();
 }
+
 function loadingBattleFinished(data){
-	var jsonObject = jQuery.parseJSON(data);
-	alert(jsonObject);
-	var player = data.updatedValues.player;
-	var monster = data.updatedValues.monster;
-	updatePlayer(player);
-	updateMonster(monster, selector);
+	//var player = data.updatedValues.player;
+	//var monster = data.updatedValues.monster;
+	//updatePlayer(player);
+	//updateMonster(monster);
 	$('#loadingBattle').hide();
 }
 

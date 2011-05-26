@@ -15,15 +15,10 @@
 	<p class="listHeading">List of all Monsters</p>
 	<?php foreach ($this->entries as $entry): ?>
 	<div class="monster">
-		<span class="monsterName" ><?php echo $this->ajaxLink("Attack ".$entry->name,
-							'/monster/attack/id/'.$entry->id,
-							array('update' => '#content', 'noscript' => false, 'dataType' => 'Text',
-							 'beforeSend' => 'loadingBattle();', 'complete' => 'loadingBattleFinished(data);')
-								); ?></span>
+		<span class="monsterName" ><a href="#" class="attackLink" >Attack <?php $entry->name; ?></a></span>
 		<span class="monsterHealth" ><?php echo "&nbsp;&nbsp;&nbsp;".$entry->health."&nbsp;&nbsp;"; ?></span>
 		<span class="monsterAttackDamage" ><?php echo $entry->attackDamage."&nbsp;&nbsp;"; ?></span>
 	</div>
 	<?php endforeach; ?>
 </div>
-<div id="content" style="clear:both">
-</div>
+<div id="content" style="clear:both;visibility:hidden;"></div>'/monster/attack/id/'.$entry->id
