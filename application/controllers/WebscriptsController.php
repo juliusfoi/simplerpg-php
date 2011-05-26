@@ -20,11 +20,13 @@
 
 class WebscriptsController extends Zend_Controller_Action
 {
+	protected $_scripts;
 
 	public function init()
 	{
 		$this->_helper->layout()->disableLayout();
 		$this->_helper->viewRenderer->setNoRender(true);
+		$this->_scripts = array('battle.js', 'jQuery.js', 'jQueryUI.js', 'main.js');
 	}
 
 	public function indexAction()
@@ -34,7 +36,11 @@ class WebscriptsController extends Zend_Controller_Action
 
 	public function getscriptAction()
 	{
-		$this->_response->setBody(file_get_contents(APPLICATION_PATH.'/webscripts/'.$this->_getParam('script', 'no script found')));
+		$script = $this->_getParam('script', 'no script found');
+		if(in_array($script, $this->_scripts))
+		{
+			$this->_response->setBody(file_get_contents(APPLICATION_PATH.'/webscripts/'.$script));	
+		}
 	}
 
 
