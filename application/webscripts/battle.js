@@ -16,6 +16,17 @@
     You should have received a copy of the GNU General Public License
     along with SimpleRPG.  If not, see <http://www.gnu.org/licenses/>.
 */
+function startBattle(){
+	dojo.xhrGet({
+	    url:"/monster/attack/id/1",
+	    handleAs:"json",
+	    load: function(data){
+	        for(var i in data){
+	           console.log("key", i, "value", data[i]);
+	        }
+	    }
+	});
+}
 function updatePlayer(player){
 	$("div.player").children("span.playerHealth").text("Health "+player.health.toString());
 	$("div.player").children("span.playerExperience").text("Experience "+player.experience.toString());

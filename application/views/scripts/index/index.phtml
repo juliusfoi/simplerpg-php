@@ -15,10 +15,11 @@
 	<p class="listHeading">List of all Monsters</p>
 	<?php foreach ($this->entries as $entry): ?>
 	<div class="monster">
-		<span class="monsterName" ><a href="#" class="attackLink" >Attack <?php $entry->name; ?></a></span>
+		<span class="monsterName" ><a href="#" class="attackLink" >Attack <?php echo $entry->name; ?></a></span>
 		<span class="monsterHealth" ><?php echo "&nbsp;&nbsp;&nbsp;".$entry->health."&nbsp;&nbsp;"; ?></span>
 		<span class="monsterAttackDamage" ><?php echo $entry->attackDamage."&nbsp;&nbsp;"; ?></span>
+		<span><?php echo $entry->id; ?></span>
 	</div>
 	<?php endforeach; ?>
 </div>
-<div id="content" style="clear:both;visibility:hidden;"></div>'/monster/attack/id/'.$entry->id
+<div id="content" style="clear:both;visibility:hidden;"></div>
