@@ -1,7 +1,15 @@
 <?php echo $this->doctype(); ?>
 <html>
 <head>
-
+<?php echo $this->dojo()->enable(); ?>
+<?php echo $this->headScript()->appendFile('/webscripts/getscript/script/battle.js'); ?>
+<script>
+<![CDATA[
+         $(document).ready(
+                 dojo.connect(dojo.query('.attackLink'), "onclick", null, startBattle())
+                 );
+]]>
+</script>
 <style>
     a:link,
     a:visited
