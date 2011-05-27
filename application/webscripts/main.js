@@ -1,8 +1,9 @@
 function IrontouchGameSetup(){
 	$('#loadingBattle').hide();
-	$('#attack-button').live('click', function(){
+	$('.attack-button').live('click', function(){
 		loadingBattle();
-	    $.getJSON('/monster/attack/id/1', function(data) {
+		var monsterId = $(this).attr('id');
+	    $.getJSON('/monster/attack/id/'+monsterId, function(data) {
 	        //alert(data); //uncomment this for debug
 	        //alert (data.item1+" "+data.item2+" "+data.item3); //further debug
 	        console.log(data.updatedValues.player);

@@ -3,6 +3,7 @@
 	<p class="listHeading">List of all Players</p>
 	<?php foreach ($this->players as $entry): ?>
 	<?php $this->placeholder('userName')->set($entry->name); ?>
+	<?php $this->placeholder('playerLocation')->set($entry->location); ?>
 	<div class="player">
 		<?php echo '<span class="playerName" title="'.$entry->id.'">Name '.$entry->name.'</span>&nbsp;&nbsp;'; ?>
 		<span class="playerHealth" ><?php echo "Health ".$entry->health."&nbsp;&nbsp;"; ?></span>
@@ -19,8 +20,8 @@
 		<span class="monsterHealth" ><?php echo "&nbsp;&nbsp;&nbsp;".$entry->health."&nbsp;&nbsp;"; ?></span>
 		<span class="monsterAttackDamage" ><?php echo $entry->attackDamage."&nbsp;&nbsp;"; ?></span>
 		<span><?php echo $entry->id; ?></span>
+		<button class='attack-button' id="<?php echo $entry->id; ?>">Attack</button>
 	</div>
 	<?php endforeach; ?>
 </div>
-<button id='attack-button'>Attack</button>
 <div id="content" style="clear:both;visibility:hidden;"></div>
