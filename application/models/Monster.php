@@ -24,6 +24,7 @@ class Application_Model_Monster
 	protected $_name;
 	protected $_health;
 	protected $_attackDamage;
+	protected $_location;
 	
 	public function __construct(array $options = null)
     {
@@ -109,6 +110,20 @@ class Application_Model_Monster
     public function setAttackDamage($attackDamage)
     {
     	$this->_attackDamage = (int) $attackDamage;
+    	return $this;
+    }
+    
+	public function getLocation()
+    {
+    	if($this->_location != null)
+    		return  $this->_location;
+    	else
+    		return null;
+    }
+    
+    public function setLocation($location)
+    {
+    	$this->_location = (string) $location;
     	return $this;
     }
 

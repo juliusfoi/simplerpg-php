@@ -10,7 +10,8 @@ CREATE TABLE player (
 	mana INTEGER,
 	attackDamage INTEGER,
 	defense INTEGER,
-	experience INTEGER
+	experience INTEGER,
+	location VARCHAR(32)
 );
  
 CREATE INDEX "id" ON "player" ("id");
@@ -20,5 +21,6 @@ CREATE TABLE monster (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	name VARCHAR(32) NOT NULL,
 	health INTEGER,
-	attackDamage INTEGER
+	attackDamage INTEGER,
+	location VARCHAR(32)
 );

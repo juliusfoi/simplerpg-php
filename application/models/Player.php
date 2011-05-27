@@ -28,6 +28,7 @@ class Application_Model_Player
 	protected $_attackDamage;
 	protected $_defense;
 	protected $_experience;
+	protected $_location;
 
     public function __construct(array $options = null)
     {
@@ -151,6 +152,20 @@ class Application_Model_Player
     public function setExperience($exp)
     {
     	$this->_experience = (int) $exp;
+    	return $this;
+    }
+    
+	public function getLocation()
+    {
+    	if($this->_location != null)
+    		return  $this->_location;
+    	else
+    		return null;
+    }
+    
+    public function setLocation($location)
+    {
+    	$this->_location = (string) $location;
     	return $this;
     }
  

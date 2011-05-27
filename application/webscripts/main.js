@@ -1,6 +1,6 @@
 function IrontouchGameSetup(){
 	$('#loadingBattle').hide();
-	$('#getdata-button').live('click', function(){
+	$('#attack-button').live('click', function(){
 		loadingBattle();
 	    $.getJSON('/monster/attack/id/1', function(data) {
 	        //alert(data); //uncomment this for debug
