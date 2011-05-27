@@ -38,7 +38,7 @@ function loadingBattleFinished(data){
 	console.log(monster);
 	updatePlayer(player);
 	updateMonster(monster);
-	$('#loadingBattle').hide();
+	setTimeout($('#loadingBattle').hide(), 4000);
 }
 
 

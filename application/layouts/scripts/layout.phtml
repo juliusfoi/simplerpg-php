@@ -1,4 +1,4 @@
-<?php echo $this->doctype(); ?>
+<?php echo $this->doctype()."\n"; ?>
 <html>
 <head>
 <?php 
@@ -55,6 +55,7 @@
     	font-size:36px;
     	text-shadow: 1px 1px 1px #999999, 5px 3px 2px #CCCCCC;
     	float:left;
+    	margin-bottom:10px;
     }
     
     div.simpleList
@@ -72,6 +73,7 @@
     div.innerHeadBar
     {
     	background-color:black;
+    	padding: 5px 5px 5px 5px;
     	clear:both;
     }
     
@@ -88,14 +90,23 @@
 	
 	#loadingBattle
 	{
-		
+		background-color:lightgrey;
+		border-width:10px;
+		border-color:lightgrey;
+		margin-left:40%;
+		float:left;
 	}
-    
+    .html5logo
+    {
+    	float:right;
+    }
 </style>
 </head>
 <body>
 <div class="headBar" >
-	<span class="headBarTitle">SimpleRPG</span><div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;" >battling monster...</span></div>
+	<span class="headBarTitle">SimpleRPG</span>
+	<div id="loadingBattle" style="text-align:center;"><img alt="loading.png" src="/media/1306503198_process.png"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
+	<div class="html5logo"><img alt="HTML5logowhite" src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"></div>
 	<div class="innerHeadBar">
 		<span class="headBarText" >Main - Profile - Battle - Quest</span>
 	</div>
