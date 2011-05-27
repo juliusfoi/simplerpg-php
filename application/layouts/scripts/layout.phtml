@@ -1,15 +1,14 @@
 <?php echo $this->doctype(); ?>
 <html>
 <head>
-<?php echo $this->dojo()->enable(); ?>
-<?php echo $this->headScript()->appendFile('/webscripts/getscript/script/battle.js'); ?>
-<script>
-<![CDATA[
-         $(document).ready(
-                 dojo.connect(dojo.query('.attackLink'), "onclick", null, startBattle())
-                 );
-]]>
-</script>
+<?php 
+	echo $this->jQuery()
+	->enable()->uiEnable()
+	->addJavascriptFile('/webscripts/getscript/script/battle.js')
+	->addJavascriptFile('/webscripts/getscript/script/main.js')
+	->addOnLoad('IrontouchGameSetup();');
+?>
+
 <style>
     a:link,
     a:visited
@@ -55,6 +54,7 @@
     	font-family: Calibri;
     	font-size:36px;
     	text-shadow: 1px 1px 1px #999999, 5px 3px 2px #CCCCCC;
+    	float:left;
     }
     
     div.simpleList
@@ -72,6 +72,7 @@
     div.innerHeadBar
     {
     	background-color:black;
+    	clear:both;
     }
     
     div.contentBox
@@ -84,13 +85,17 @@
     {
 	  text-shadow: 1px 1px 1px #BBFFFF;
 	}
+	
+	#loadingBattle
+	{
+		
+	}
     
 </style>
 </head>
 <body>
-<div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;" >battling monster...</span></div>
 <div class="headBar" >
-	<span class="headBarTitle">SimpleRPG</span>
+	<span class="headBarTitle">SimpleRPG</span><div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;" >battling monster...</span></div>
 	<div class="innerHeadBar">
 		<span class="headBarText" >Main - Profile - Battle - Quest</span>
 	</div>
