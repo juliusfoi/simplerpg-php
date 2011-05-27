@@ -118,9 +118,15 @@
     {
     	clear:both;
     }
+    #game
+    {
+    	margin-left:20%;
+    	margin-right:20%;
+    }
 </style>
 </head>
 <body>
+<div id="game">
 <div class="headBar" >
 	<span class="headBarTitle">SimpleRPG</span>
 	<div id="loadingBattle" style="text-align:center;"><img alt="loading.png" src="/media/1306503198_process.png"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
@@ -141,9 +147,13 @@
 <div class="clear"></div>
 <div class="contentBox">
 	<div class="worldLocation">
+		<div>
+			<img class="locationPicture" alt="locationPicture" src="http://opengameart.org/sites/default/files/fossil_cave.jpg">
+		</div>
 		<span>You are here: <span class="playerLocation" ><?php echo $this->placeholder('playerLocation'); ?></span></span>
 	</div>
 	<?php echo $this->layout()->content; ?>
+</div>
 </div>
 </body>
 </html>
