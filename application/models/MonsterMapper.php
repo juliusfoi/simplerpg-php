@@ -69,7 +69,8 @@ class Application_Model_MonsterMapper
     	$data = array(
     			'name' => $model->getName(),
     			'health' => $model->getHealth(),
-    			'attackDamage' => $model->getAttackDamage()
+    			'attackDamage' => $model->getAttackDamage(),
+    			'location' => $model->getLocation()
     					);
     	$id = $model->getId();
     	foreach($data as $key => $value)
@@ -95,7 +96,8 @@ class Application_Model_MonsterMapper
         $model->setId($row->id)
                   ->setName($row->name)
                   ->setHealth($row->health)
-                  ->setAttackDamage($row->attackDamage);
+                  ->setAttackDamage($row->attackDamage)
+                  ->setLocation($row->location);
     }
     
     public function fetchAll()
@@ -107,7 +109,8 @@ class Application_Model_MonsterMapper
             $entry->setId($row->id)
                   ->setName($row->name)
                   ->setHealth($row->health)
-                  ->setAttackDamage($row->attackDamage);
+                  ->setAttackDamage($row->attackDamage)
+                  ->setLocation($row->location);
             $entries[] = $entry;
         }
         return $entries;

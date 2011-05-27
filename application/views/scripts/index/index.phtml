@@ -2,7 +2,7 @@
 <div class="simpleList" style="float:left;">
 	<p class="listHeading">List of all Players</p>
 	<?php foreach ($this->players as $entry): ?>
-	
+	<?php $this->placeholder('userName')->set($entry->name); ?>
 	<div class="player">
 		<?php echo '<span class="playerName" title="'.$entry->id.'">Name '.$entry->name.'</span>&nbsp;&nbsp;'; ?>
 		<span class="playerHealth" ><?php echo "Health ".$entry->health."&nbsp;&nbsp;"; ?></span>
@@ -15,7 +15,7 @@
 	<p class="listHeading">List of all Monsters</p>
 	<?php foreach ($this->entries as $entry): ?>
 	<div class="monster">
-		<span class="monsterName" ><a href="#" class="attackLink" >Attack <?php echo $entry->name; ?></a></span>
+		<span class="monsterName" ><?php echo $entry->name; ?></span>
 		<span class="monsterHealth" ><?php echo "&nbsp;&nbsp;&nbsp;".$entry->health."&nbsp;&nbsp;"; ?></span>
 		<span class="monsterAttackDamage" ><?php echo $entry->attackDamage."&nbsp;&nbsp;"; ?></span>
 		<span><?php echo $entry->id; ?></span>

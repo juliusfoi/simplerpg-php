@@ -43,9 +43,13 @@
     	background-color:lightgrey;
     }
     
-    span.headBarText
+    a.headBarLink
     {
-    	color:white;
+    	font-family: Verdana;
+    }
+    
+    span.headBarUserText
+    {
     	font-family: Verdana;
     }
     
@@ -57,7 +61,7 @@
     	float:left;
     	margin-bottom:10px;
     }
-    
+  
     div.simpleList
     {
     	max-width:450px;
@@ -65,7 +69,6 @@
     
     div.headBar
     {
-    	height:60px;
     	padding-top:10px;
     	padding-left:70px;
     }
@@ -73,14 +76,25 @@
     div.innerHeadBar
     {
     	background-color:black;
-    	padding: 5px 5px 5px 5px;
-    	clear:both;
+    	width:auto;
+    	height:auto;
     }
     
     div.contentBox
     {
     	padding-top:50px;
     	padding-left:80px;
+    }
+    
+    div.headBarUser
+    {
+    	padding: 7px 7px 7px 7px;
+    	float:right;
+    	background-color:lightgrey;
+    }
+    div.headBarText
+    {
+    	padding: 5px 5px 5px 5px;
     }
     
     .shadow 
@@ -100,6 +114,10 @@
     {
     	float:right;
     }
+    .clear
+    {
+    	clear:both;
+    }
 </style>
 </head>
 <body>
@@ -107,10 +125,20 @@
 	<span class="headBarTitle">SimpleRPG</span>
 	<div id="loadingBattle" style="text-align:center;"><img alt="loading.png" src="/media/1306503198_process.png"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
 	<div class="html5logo"><img alt="HTML5logowhite" src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"></div>
-	<div class="innerHeadBar">
-		<span class="headBarText" >Main - Profile - Battle - Quest</span>
-	</div>
+	<dir class="clear"></dir>
+		<div class="innerHeadBar">
+			<div class="headBarText" >
+				<a class="headBarLink" href="<?php echo $this->url(array('action' => '', 'controller' => 'index')); ?>" >Home</a>
+				<a class="headBarLink" href="<?php echo $this->url(array('action' => 'profile', 'controller' => 'player')); ?>" >Profile</a>
+			</div>
+		</div>
+		<div class="headBarUser" >
+				<?php echo $this->gravatar("info@accountr.eu"); ?><br />
+				<span class="headBarUserText">Your are: <?php echo $this->placeholder('userName'); ?></span>
+		</div>
+		<div class="clear"></div>
 </div>
+<div class="clear"></div>
 <div class="contentBox">
 	<?php echo $this->layout()->content; ?>
 </div>

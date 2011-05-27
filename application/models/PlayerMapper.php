@@ -51,7 +51,8 @@ class Application_Model_PlayerMapper
     			'mana' => $model->getMana(),
     			'attackDamage' => $model->getAttackDamage(),
     			'defense' => $model->getDefense(),
-    			'experience' => $model->getExperience()
+    			'experience' => $model->getExperience(),
+    			'location' => $model->getLocation()
     					);
     	if (null === ($id = $model->getId())) {
             unset($data['id']);
@@ -74,7 +75,8 @@ class Application_Model_PlayerMapper
                   ->setMana($row->mana)
                   ->setAttackDamage($row->attackDamage)
                   ->setDefense($row->defense)
-                  ->setExperience($row->experience);
+                  ->setExperience($row->experience)
+                  ->setLocation($row->location);
     }
     
     public function fetchAll()
@@ -90,7 +92,8 @@ class Application_Model_PlayerMapper
                   ->setMana($row->mana)
                   ->setAttackDamage($row->attackDamage)
                   ->setDefense($row->defense)
-                  ->setExperience($row->experience);
+                  ->setExperience($row->experience)
+                  ->setLocation($row->location);
             $entries[] = $entry;
         }
         return $entries;
@@ -105,7 +108,8 @@ class Application_Model_PlayerMapper
     			'mana' => new Zend_Db_Expr('mana + '.$model->getMana()),
     			'defense' => new Zend_Db_Expr('defense + '.$model->getDefense()),
     			'attackDamage' => new Zend_Db_Expr('attackDamage + '.$model->getAttackDamage()),
-    			'experience' => new Zend_Db_Expr('experience + '.$model->getExperience())
+    			'experience' => new Zend_Db_Expr('experience + '.$model->getExperience()),
+    			'location' => $model->getLocation()
     					);
     	$id = $model->getId();
     	foreach($data as $key => $value)
