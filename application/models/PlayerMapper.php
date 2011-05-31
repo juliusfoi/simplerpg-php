@@ -114,8 +114,10 @@ class Application_Model_PlayerMapper
     	$id = $model->getId();
     	foreach($data as $key => $value)
     	{
-    		if($value == null || !isset($value) || $value == '')
+    		if($value == null || !isset($value) || $value == '' || $value == ' ' || $value == ',')
+    		{
     			unset($data[$key]);
+    		}
     	}
     	if (null === $id ) {
             unset($data['id']);

@@ -118,7 +118,6 @@
 		border-color:lightgrey;
 		margin-left:40%;
 		float:left;
-		visibility:hidden;
 	}
     .html5logo
     {
@@ -136,16 +135,6 @@
 </style>
 </head>
 <body>
-<?php 
-	if(extension_loaded('gearman'))
-	{
-		echo "gearman loaded";
-	}
-	else
-	{
-		echo "gearman not loaded";
-	}
-?>
 <div id="game">
 <div class="headBar" >
 	<span class="headBarTitle">SimpleRPG</span>
@@ -155,9 +144,9 @@
 	<dir class="clear"></dir>
 		<div class="innerHeadBar">
 			<div class="headBarText" >
-				<a class="headBarLink" href="<?php echo $this->url(array('action' => '', 'controller' => 'index')); ?>" >Home</a>
+				<a class="headBarLink" href="<?php echo $this->url(array('action' => 'index', 'controller' => 'index')); ?>" >Home</a>
 				<a class="headBarLink" href="<?php echo $this->url(array('action' => 'profile', 'controller' => 'player')); ?>" >Profile</a>
-				<a class="headBarLink" href="#" id="travelButton" >Travel to Home</a>
+				<a class="headBarLink travelLink" href="#" >Travel to Home</a>
 			</div>
 		</div>
 		<div class="headBarUser" >

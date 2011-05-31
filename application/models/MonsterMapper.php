@@ -48,13 +48,17 @@ class Application_Model_MonsterMapper
     	$data = array(
     			'name' => $model->getName(),
     			'health' => new Zend_Db_Expr('health + '.$model->getHealth()),
-    			'attackDamage' => $model->getAttackDamage()
+    			'attackDamage' => $model->getAttackDamage(),
+    			'location' => $model->getLocation()
     					);
     	$id = $model->getId();
     	foreach($data as $key => $value)
     	{
-    		if($value == null || !isset($value) || $value == '')
+    		if($value == null || !isset($value) || $value == '' || $value == ' ' || $value == ',')
+    		{
     			unset($data[$key]);
+    			echo $key;	
+    		}
     	}
     	if (null === $id ) {
             unset($data['id']);

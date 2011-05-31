@@ -38,7 +38,7 @@ function loadingBattleFinished(data){
 	console.log(monster);
 	updatePlayer(player);
 	updateMonster(monster);
-	setTimeout($('#loadingBattle').hide(), 4000);
+	$('#loadingBattle').hide();
 }
 
 function loadingTravel(){
@@ -46,7 +46,7 @@ function loadingTravel(){
 }
 
 function loadingTravelFinished(){
-	setTimeout($('#loadingTravel').hide(), 4000);
+	$('#loadingTravel').hide();
 }
 
 

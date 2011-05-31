@@ -1,4 +1,6 @@
 function IrontouchGameSetup(){
+	loadingTravelFinished();
+	$('#loadingBattle').hide();
 	$('.locationPicture').css('width', '200px');
 	$('.locationPicture').css('height', 'auto');
 	$('.attack-button').live('click', function(){
@@ -12,14 +14,13 @@ function IrontouchGameSetup(){
 	        
 	    });
 	});
-	$('#travelButton').live('click', function(){
+	$('.travelLink').live('click', function(){
 		loadingTravel();
 	    $.getJSON('/player/travel/to/home', function(data) {
 	        //alert(data); //uncomment this for debug
 	        //alert (data.item1+" "+data.item2+" "+data.item3); //further debug
-	        console.log(data);
-	        loadingTravelFinished();
-	        
+	        alert(data.traveled);
+	        loadingTravelFinished(); 
 	    });
 	});
 }

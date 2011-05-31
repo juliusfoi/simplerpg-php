@@ -69,7 +69,10 @@ class Application_Model_Player
     
     public function getId()
     {
-    	return $this->_id;
+    	if($this->_id == null || $this->_id == '')
+    		return null;
+    	else
+    		return $this->_id;
     }
     
     public function setId($id)
@@ -80,7 +83,10 @@ class Application_Model_Player
     
 	public function getName()
     {
-    	return  $this->_name;
+    	if($this->_name == null || $this->_name == '')
+    		return '';
+    	else
+    		return $this->_name;
     }
     
     public function setName($name)
@@ -91,7 +97,10 @@ class Application_Model_Player
     
 	public function getHero()
     {
-    	return $this->_hero;
+    	if($this->_hero == null || $this->_hero == '')
+    		return '';
+    	else
+    		return $this->_hero;
     }
     
     public function setHero($hero)
@@ -102,7 +111,10 @@ class Application_Model_Player
     
 	public function getHealth()
     {
-    	return $this->_health;
+    	if($this->_health == null || $this->_health == '')
+    		return 0;
+    	else
+    		return $this->_health;
     }
     
     public function setHealth($health)
@@ -113,7 +125,10 @@ class Application_Model_Player
     
 	public function getMana()
     {
-    	return $this->_mana;
+    	if($this->_mana == null || $this->_mana == '')
+    		return 0;
+    	else
+    		return $this->_mana;
     }
     
     public function setMana($mana)
@@ -124,7 +139,10 @@ class Application_Model_Player
     
 	public function getAttackDamage()
     {
-    	return $this->_attackDamage;	
+    	if($this->_attackDamage == null || $this->_attackDamage == '')
+    		return 0;
+    	else
+    		return $this->_attackDamage;	
     }
     
     public function setAttackDamage($attackDamage)
@@ -135,7 +153,10 @@ class Application_Model_Player
     
 	public function getDefense()
     {
-    	return $this->_defense;
+    	if($this->_defense == null || $this->_defense == '')
+    		return 0;
+    	else
+    		return $this->_defense;
     }
     
     public function setDefense($defense)
@@ -146,7 +167,10 @@ class Application_Model_Player
     
     public  function getExperience()
     {
-    	return $this->_experience;
+    	if($this->_experience == null || $this->_experience == '')
+    		return 0;
+    	else
+    		return $this->_experience;
     }
     
     public function setExperience($exp)
