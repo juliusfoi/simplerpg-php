@@ -21,6 +21,17 @@ class PlayerController extends Zend_Controller_Action
 		$mapper->find($id, $player);
 		$this->view->player = $player;
 	}
+	
+	public function travelAction()
+	{
+		$destination = $this->_getParam("to", "home");
+		$player = new Application_Model_Player();
+		$mapper = new Application_Model_PlayerMapper();
+		$id = 1;
+		$player->setId($id)->setLocation($destination);
+		$mapper->update($player);
+		$this->view->json_response = true;
+	}
 
 
 }

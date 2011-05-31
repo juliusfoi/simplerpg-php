@@ -41,4 +41,12 @@ function loadingBattleFinished(data){
 	setTimeout($('#loadingBattle').hide(), 4000);
 }
 
+function loadingTravel(){
+	$('#loadingTravel').show();
+}
+
+function loadingTravelFinished(){
+	setTimeout($('#loadingTravel').hide(), 4000);
+}
+
 

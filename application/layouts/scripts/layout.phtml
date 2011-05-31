@@ -7,6 +7,15 @@
 	->addJavascriptFile('/webscripts/getscript/script/battle.js')
 	->addJavascriptFile('/webscripts/getscript/script/main.js')
 	->addOnLoad('IrontouchGameSetup();');
+
+	// setting the controller and action name as title segments:
+	$request = Zend_Controller_Front::getInstance()->getRequest();
+	$this->headTitle('SimpleRPG ');
+	$this->headTitle(ucfirst($request->getActionName()))
+	      ->headTitle(ucfirst($request->getControllerName()));
+	// setting a separator string for segments:
+	$this->headTitle()->setSeparator('/');
+	echo $this->headTitle();
 ?>
 
 <style>
@@ -102,13 +111,14 @@
 	  text-shadow: 1px 1px 1px #BBFFFF;
 	}
 	
-	#loadingBattle
+	#loadingBattle, #loadingTravel
 	{
 		background-color:lightgrey;
 		border-width:10px;
 		border-color:lightgrey;
 		margin-left:40%;
 		float:left;
+		visibility:hidden;
 	}
     .html5logo
     {
@@ -126,9 +136,20 @@
 </style>
 </head>
 <body>
+<?php 
+	if(extension_loaded('gearman'))
+	{
+		echo "gearman loaded";
+	}
+	else
+	{
+		echo "gearman not loaded";
+	}
+?>
 <div id="game">
 <div class="headBar" >
 	<span class="headBarTitle">SimpleRPG</span>
+	<div id="loadingTravel" style="text-align:center;"><img alt="loading.png" src="/media/1306503198_process.png"><span style="font-weight:bold;color:white;" >traveling...</span></div>
 	<div id="loadingBattle" style="text-align:center;"><img alt="loading.png" src="/media/1306503198_process.png"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
 	<div class="html5logo"><img alt="HTML5logowhite" src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"></div>
 	<dir class="clear"></dir>
@@ -136,6 +157,7 @@
 			<div class="headBarText" >
 				<a class="headBarLink" href="<?php echo $this->url(array('action' => '', 'controller' => 'index')); ?>" >Home</a>
 				<a class="headBarLink" href="<?php echo $this->url(array('action' => 'profile', 'controller' => 'player')); ?>" >Profile</a>
+				<a class="headBarLink" href="#" id="travelButton" >Travel to Home</a>
 			</div>
 		</div>
 		<div class="headBarUser" >
