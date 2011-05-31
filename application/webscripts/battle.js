@@ -49,4 +49,3 @@ function loadingTravelFinished(){
 	$('#loadingTravel').hide();
 }
 
-
