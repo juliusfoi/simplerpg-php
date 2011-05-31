@@ -24,6 +24,7 @@ class PlayerController extends Zend_Controller_Action
 	
 	public function travelAction()
 	{
+		$this->_helper->layout()->disableLayout();
 		$destination = $this->_getParam("to", "home");
 		$player = new Application_Model_Player();
 		$mapper = new Application_Model_PlayerMapper();
