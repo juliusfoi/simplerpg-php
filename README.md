@@ -1,4 +1,4 @@
-= SimpleRPG =
+== SimpleRPG ==
 
 I start this as test project to show that the creation of games by using the Zend Framework (+jQuery, +X) is possible.
 
