@@ -70,6 +70,10 @@
     	float:left;
     	margin-bottom:10px;
     }
+    span.headBarTitle:hover
+    {
+    	color: #0398CA;
+    }
   
     div.simpleList
     {
@@ -114,10 +118,15 @@
 	#loadingBattle, #loadingTravel
 	{
 		background-color:lightgrey;
-		border-width:10px;
-		border-color:lightgrey;
-		margin-left:40%;
+		width:400px;
+		border-color:red;
+		margin-left:20%;
+		margin-right:20%;
 		float:left;
+		border-radius:50px;
+		border-color:#98bf21;
+		padding-top:10px;
+		padding-bottom:10px;
 	}
     .html5logo
     {
@@ -138,8 +147,8 @@
 <div id="game">
 <div class="headBar" >
 	<span class="headBarTitle">SimpleRPG</span>
-	<div id="loadingTravel" style="text-align:center;"><img alt="loading.png" src="/media/1306503198_process.png"><span style="font-weight:bold;color:white;" >traveling...</span></div>
-	<div id="loadingBattle" style="text-align:center;"><img alt="loading.png" src="/media/1306503198_process.png"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
+	<div id="loadingTravel" style="text-align:center;"><span style="font-weight:bold;color:white;" >traveling...</span></div>
+	<div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
 	<div class="html5logo"><img alt="HTML5logowhite" src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"></div>
 	<dir class="clear"></dir>
 		<div class="innerHeadBar">

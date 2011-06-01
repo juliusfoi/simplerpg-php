@@ -34,6 +34,8 @@ class PlayerController extends Zend_Controller_Action
 		$mapper->update($player);
 		$this->view->jsonresponse = array("traveled" => true);
 	}
+	
+	public function healAction();
 
 
 }
