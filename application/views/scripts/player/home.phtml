@@ -1,0 +1,13 @@
+<div id="home">
+	<div class="playerStats" >
+		<?php foreach($this->player as $player): ?>
+			<span class="playerStatName" >Hero</span><span class="playerStat" id="playerHero" ><?php echo $player->hero; ?></span>
+			<span class="playerStatName" >Health</span><span class="playerStat" id="playerHealth" ><?php echo $player->health; ?></span>
+			<span class="playerStatName" >Mana</span><span class="playerStat" id="playerMana" ><?php echo $player->mana; ?></span>
+			<span class="playerStatName" >Attack Damage</span><span class="playerStat" id="playerAttackDamage" ><?php echo $player->attackDamage; ?></span>
+			<span class="playerStatName" >Defense</span><span class="playerStat" id="playerDefense" ><?php echo $player->defense; ?></span>
+			<span class="playerStatName" >Experience</span><span class="playerStat" id="playerExperience" ><?php echo $player->experience; ?></span>
+			<span class="playerStatName" >Location</span><span class="playerStat" id="playerLocation" ><?php echo $player->location; ?></span>
+		<?php endforeach; ?>
+	</div>
+</div>

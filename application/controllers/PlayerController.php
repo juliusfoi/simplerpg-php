@@ -47,6 +47,15 @@ class PlayerController extends Zend_Controller_Action
 		$mapper->update($player);
 		$this->view->jsonresponse = array("healed" => true, "amount" => $amount);
 	}
+	
+	public function homeAction()
+	{
+		$player = new Application_Model_Player();
+		$mapper = new Application_Model_PlayerMapper();
+		$id = 1;
+		$mapper->find($id, $player);
+		$this->view->player = (object) $player;
+	}
 
 
 }
