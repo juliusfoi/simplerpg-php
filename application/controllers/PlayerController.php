@@ -35,7 +35,18 @@ class PlayerController extends Zend_Controller_Action
 		$this->view->jsonresponse = array("traveled" => true);
 	}
 	
-	public function healAction();
+	public function healAction()
+	{
+		$this->_helper->layout()->disableLayout();
+		$player = new Application_Model_Player();
+		$mapper = new Application_Model_PlayerMapper();
+		$id = 1;
+		$player->setId($id);
+		$amount = 100;
+		$player->setHealth($amount);
+		$mapper->update($player);
+		$this->view->jsonresponse = array("healed" => true, "amount" => $amount);
+	}
 
 
 }

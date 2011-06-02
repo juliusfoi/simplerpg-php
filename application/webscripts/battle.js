@@ -49,3 +49,23 @@ function loadingTravelFinished(){
 	$('#loadingTravel').hide();
 }
 
+function Player(player){
+	this.player = player;
+}
+Player.prototype.update = function updatePlayer(player){
+	$("div.player").children("span.playerHealth").text("Health "+player.health).effect("highlight", {}, 3000);
+	$("div.player").children("span.playerExperience").text("XP "+player.experience).effect("highlight", {}, 3000);
+};
+Player.prototype.heal = function healPlayer(player){
+	return;
+};
+
+function URL(options){
+	this.options = options;
+}
+/*URL.prototype.constructor = function(options){
+	for(param in options.params){
+		params += "/" + param.nam;
+	}
+	return "/" + options.controller + "/" + options.action + params;
+};*/
