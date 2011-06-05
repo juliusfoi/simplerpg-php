@@ -22,6 +22,12 @@
         <controllerFile controllerName="Webscripts">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Town">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Quest">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="PlayerProfile"/>
@@ -32,10 +38,12 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Player"/>
           <dbTableFile dbTableName="Monster"/>
+          <dbTableFile dbTableName="Quest"/>
         </dbTableDirectory>
         <modelFile modelName="PlayerMapper"/>
         <modelFile modelName="Monster"/>
         <modelFile modelName="MonsterMapper"/>
+        <modelFile modelName="Quest"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -66,6 +74,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="webscripts">
             <viewScriptFile forActionName="getscript"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Town">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Quest">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -104,6 +118,8 @@
           <testApplicationControllerFile filesystemName="PlayerControllerTest.php"/>
           <testApplicationControllerFile filesystemName="MonsterControllerTest.php"/>
           <testApplicationControllerFile filesystemName="WebscriptsControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="TownControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="QuestControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

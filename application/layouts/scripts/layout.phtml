@@ -19,6 +19,11 @@
 ?>
 
 <style>
+	@font-face
+	{
+		font-family: Nova;
+		src: url("/media/Nova/NovaCut/NovaCut.ttf");
+	}
     a:link,
     a:visited
     {
@@ -64,31 +69,46 @@
     
     span.headBarTitle
     {
-    	font-family: Calibri;
+    	font-family:Nova;
     	font-size:36px;
+    	font-weight:550;
     	text-shadow: 1px 1px 1px #999999, 5px 3px 2px #CCCCCC;
     	float:left;
     	margin-bottom:10px;
     }
     span.headBarTitle:hover
     {
-    	color: #0398CA;
+    	color: #F5FFFA;
+    	text-shadow: 1px 1px 1px #FF3366, 5px 3px 2px #CC0033;
+    	/*background-image: url("http://bestanimations.com/Nature/Fire/Flames/Flame-04-june.gif");*/
     }
   
     div.simpleList
     {
-    	max-width:450px;
+    	width:450px;
+    	background-color: rgba(255,255,255, 0.3);
+    	padding-left:10px;
+    	padding-right:10px;
+    	padding-bottom:10px;
     }
     
     div.headBar
     {
     	padding-top:10px;
     	padding-left:70px;
+    	padding-right:70px;
     }
     
     div.innerHeadBar
     {
-    	background-color:black;
+		background: rgb(254,255,232); /* Old browsers */
+		background: -moz-linear-gradient(top, rgba(254,255,232,1) 0%, rgba(214,219,191,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,255,232,1)), color-stop(100%,rgba(214,219,191,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* Opera11.10+ */
+		background: -ms-linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* IE10+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffe8', endColorstr='#d6dbbf',GradientType=0 ); /* IE6-9 */
+		background: linear-gradient(top, rgba(254,255,232,1) 0%,rgba(214,219,191,1) 100%); /* W3C */
     	width:auto;
     	height:auto;
     }
@@ -96,7 +116,7 @@
     div.contentBox
     {
     	padding-top:50px;
-    	padding-left:80px;
+    	padding-bottom:50px;
     }
     
     div.headBarUser
@@ -140,40 +160,97 @@
     {
     	margin-left:20%;
     	margin-right:20%;
+    	background-image: url("/media/CircleTextures/TEXTURES/B100M802.BMP");
     }
+    
+    br
+    {
+    	clear:both;
+    }
+    .playerStats
+    {
+    	max-width:300px;
+    }
+    
+    div.playerStatRow
+    {
+    	opacity: 0.6;
+    	background-color:grey;
+    	clear:both;
+    }
+    
+    div.playerStatRow:hover
+    {
+    	opacity:1.0;
+    	background-color:white;
+    }
+
+    .playerStatName
+    {
+    	float:left;
+    }
+    
+    .playerStat
+    {
+    	margin-left:40px;
+    	float:right;
+    }
+    
+    div.gameBox
+    {
+    	margin-left:70px;
+    	margin-right:70px;
+    	padding-top:20px;
+    	padding-left:20px;
+    	padding-right:20px;
+    	padding-bottom:20px;
+    	background-image: url("http://i607.photobucket.com/albums/tt155/arturia00/old_crackly_parchment_texture_by_Te.png?t=1262961261");
+    }
+    
+    
 </style>
 </head>
 <body>
 <div id="game">
-<div class="headBar" >
-	<span class="headBarTitle">SimpleRPG</span>
-	<div id="loadingTravel" style="text-align:center;"><span style="font-weight:bold;color:white;" >traveling...</span></div>
-	<div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
-	<div class="html5logo"><img alt="HTML5logowhite" src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"></div>
-	<dir class="clear"></dir>
-		<div class="innerHeadBar">
-			<div class="headBarText" >
-				<a class="headBarLink" href="<?php echo $this->url(array('action' => 'index', 'controller' => 'index')); ?>" >Home</a>
-				<a class="headBarLink" href="<?php echo $this->url(array('action' => 'profile', 'controller' => 'player')); ?>" >Profile</a>
-				<a class="headBarLink travelLink" href="#" >Travel to Home</a>
+	<img style="float:left" src="" alt="">
+	<img style="float:right;" src="" alt="">
+	<div class="headBar" >
+		<img style="float:left;" src="/media/taleofzane.png" alt=""><!-- <span class="headBarTitle">SimpleRPG</span> -->
+		<div id="loadingTravel" style="text-align:center;"><span style="font-weight:bold;color:white;" >traveling...</span></div>
+		<div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
+		<div class="html5logo"><img alt="HTML5logowhite" src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"></div>
+		<dir class="clear"></dir>
+			<div class="innerHeadBar">
+				<div class="headBarText" >
+					<a class="headBarLink" href="<?php echo $this->url(array('action' => 'index', 'controller' => 'index')); ?>" >Home</a>
+					<a class="headBarLink" href="<?php echo $this->url(array('action' => 'profile', 'controller' => 'player')); ?>" >Profile</a>
+					<a class="headBarLink travelLink" href="#" >Travel to Home</a>
+				</div>
 			</div>
-		</div>
-		<div class="headBarUser" >
-				<?php echo $this->gravatar($this->placeholder('userName')."@accountr.eu"); ?><br />
-				<span class="headBarUserText">Your are: <?php echo $this->placeholder('userName'); ?></span>
-		</div>
-		<div class="clear"></div>
-</div>
-<div class="clear"></div>
-<div class="contentBox">
-	<div class="worldLocation">
-		<div>
-			<img class="locationPicture" alt="locationPicture" src="http://opengameart.org/sites/default/files/fossil_cave.jpg">
-		</div>
-		<span>You are here: <span class="playerLocation" ><?php echo $this->placeholder('playerLocation'); ?></span></span>
+			<div class="headBarUser" >
+					<?php echo $this->gravatar($this->placeholder('userName')."@accountr.eu"); ?><br />
+					<span class="headBarUserText">Your are: <?php echo $this->placeholder('userName'); ?></span>
+			</div>
+			<div class="clear"></div>
 	</div>
-	<?php echo $this->layout()->content; ?>
+	<div class="clear"></div>
+	<!-- ---------------------------------------------------------------------------------------------- -->
+	<div class="contentBox">
+		<div class="gameBox">
+			<div class="worldLocation">
+				<div>
+					<img class="locationPicture" alt="locationPicture" src="http://opengameart.org/sites/default/files/fossil_cave.jpg">
+				</div>
+				<span>You are here: <span class="playerLocation" ><?php echo $this->placeholder('playerLocation'); ?></span></span>
+			</div>
+			<hr>
+			<?php echo $this->layout()->content; ?>
+		</div>
+	</div>
 </div>
+<div id="credits" style="margin-left:20%;margin-right:20%;text-align:center;padding-top:350px;">
+	<span>art by Daniel Cook (Lostgarden.com) and by opengameart.com - Game Design by Julius Foitzik</span>
 </div>
+
 </body>
 </html>

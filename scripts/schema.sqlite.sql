@@ -24,3 +24,13 @@ CREATE TABLE monster (
 	attackDamage INTEGER,
 	location VARCHAR(32)
 );
+
+CREATE TABLE quests (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	title VARCHAR(32) NOT NULL,
+	content TEXT,
+	npc INTEGER,
+	experience INTEGER,
+	gold INTEGER
+);
+	
