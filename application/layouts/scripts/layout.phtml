@@ -196,6 +196,33 @@
     	float:right;
     }
     
+    div.questTitle
+    {
+    	background-color: #8B0000;
+    	padding-top:5px;
+    	padding-left:10px;
+    	padding-bottom:5px;
+    }
+    
+    div.questContent
+    {
+    	margin-top:10px;
+    	margin-bottom:50px;
+    	padding-left:10px;
+    	padding-right:10px;
+    	padding-top:10px;
+    	padding-bottom:50px;
+    	background-color: rgba(244, 164, 96, 0.6);
+    }
+    
+    span.questTitle
+    {
+    	color: #FFD700;
+    	margin-left:20px;
+    	font-size:18px;
+    	font-family: Nova;
+    }
+    
     div.gameBox
     {
     	margin-left:70px;
@@ -219,7 +246,7 @@
 		<div id="loadingTravel" style="text-align:center;"><span style="font-weight:bold;color:white;" >traveling...</span></div>
 		<div id="loadingBattle" style="text-align:center;"><span style="font-weight:bold;color:white;" >battling monster...</span></div>
 		<div class="html5logo"><img alt="HTML5logowhite" src="http://www.w3.org/html/logo/downloads/HTML5_Logo_32.png"></div>
-		<dir class="clear"></dir>
+		<div class="clear"></div>
 			<div class="innerHeadBar">
 				<div class="headBarText" >
 					<a class="headBarLink" href="<?php echo $this->url(array('action' => 'index', 'controller' => 'index')); ?>" >Home</a>
@@ -239,7 +266,7 @@
 		<div class="gameBox">
 			<div class="worldLocation">
 				<div>
-					<img class="locationPicture" alt="locationPicture" src="http://opengameart.org/sites/default/files/fossil_cave.jpg">
+					<img class="locationPicture" alt="locationPicture" src="/media/fossil_cave.jpg">
 				</div>
 				<span>You are here: <span class="playerLocation" ><?php echo $this->placeholder('playerLocation'); ?></span></span>
 			</div>

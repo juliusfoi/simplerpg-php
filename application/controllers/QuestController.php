@@ -10,7 +10,10 @@ class QuestController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+    	$quest = new Application_Model_Quest();
+    	$mapper = new Application_Model_QuestMapper();
+    	$mapper->find(1,$quest);
+    	$this->view->quest = $quest;
     }
 
 

@@ -1,1 +1,10 @@
-<br /><br /><center>View script for controller <b>Quest</b> and script/action name <b>index</b></center>
+<div id="quest" >
+	<div class="questTitle" >
+		<div style="float:left;padding-top:10px;"><span class="questTitle" >"<u><?php echo $this->quest->title; ?></u>"</span></div>
+		<div style="float:right;margin-right:20px;" ><img src="/media/quest-sign-small.png" alt="questsign" ></div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	<div class="questContent" ><?php echo $this->quest->content; ?></div>
+	<div class="questRewards" ><span>Experience: <?php echo $this->quest->experience;?> Gold: <?php echo $this->quest->gold; ?></span></div>
+</div>
