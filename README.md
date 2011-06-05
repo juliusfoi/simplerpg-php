@@ -7,4 +7,9 @@ Later this game will go on-line and remains open-source, so the users can submit
 
 You may [flattr me] if the project shows first "greater" results ;)
 
+Developement Snapshot
+---------------
+
+![Snapshot](http://imagr.eu/up/4dec099bf15d01_taleofzanesnapshot.png "Quest View")
+
   [flattr me]: http://flattr.com/thing/291002/SimpleRPG-PHP
