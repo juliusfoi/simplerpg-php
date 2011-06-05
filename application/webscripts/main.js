@@ -24,4 +24,10 @@ function IrontouchGameSetup(){
 	        
 	    });
 	});
+	$('img.questSign').hover(function() { 
+	    $(this).attr('src', '/media/quest-sign-small-hover.png');
+	}, function() {
+	    $(this).attr('src', '/media/quest-sign-small.png');
+	});
+
 }

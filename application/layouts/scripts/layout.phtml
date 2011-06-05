@@ -198,21 +198,32 @@
     
     div.questTitle
     {
-    	background-color: #8B0000;
-    	padding-top:5px;
-    	padding-left:10px;
+    	background-color: rgba(139, 0, 0, 0.5);
     	padding-bottom:5px;
+    }
+    
+    div.questHeadBar
+    {
+    	height:30px;
+    	max-height:30px;
+    	width:auto;
+		background: -moz-linear-gradient(rgb(238, 216, 99) 0%, rgb(168, 93, 0) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(238, 216, 99)), color-stop(100%, rgb(168, 93, 0)));
     }
     
     div.questContent
     {
-    	margin-top:10px;
     	margin-bottom:50px;
     	padding-left:10px;
     	padding-right:10px;
     	padding-top:10px;
     	padding-bottom:50px;
     	background-color: rgba(244, 164, 96, 0.6);
+    }
+    
+    div.innerQuestTitle
+    {
+    	margin-top:40px;
     }
     
     span.questTitle
@@ -270,7 +281,7 @@
 				</div>
 				<span>You are here: <span class="playerLocation" ><?php echo $this->placeholder('playerLocation'); ?></span></span>
 			</div>
-			<hr>
+			<hr style="margin-bottom:40px;">
 			<?php echo $this->layout()->content; ?>
 		</div>
 	</div>
