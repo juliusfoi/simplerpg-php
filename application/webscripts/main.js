@@ -10,7 +10,7 @@ function IrontouchGameSetup(){
 	        //alert(data); //uncomment this for debug
 	        //alert (data.item1+" "+data.item2+" "+data.item3); //further debug
 	        console.log(data.updatedValues.player);
-	        loadingBattleFinished(data), 2000;
+	        loadingBattleFinished(data);
 	        
 	    });
 	});
@@ -20,7 +20,7 @@ function IrontouchGameSetup(){
 	        //alert(data); //uncomment this for debug
 	        //alert (data.item1+" "+data.item2+" "+data.item3); //further debug
 	        console.log(data.traveled);
-	        loadingTravelFinished(), 2000; 
+	        loadingTravelFinished(); 
 	        
 	    });
 	});
