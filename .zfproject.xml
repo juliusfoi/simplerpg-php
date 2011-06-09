@@ -25,6 +25,7 @@
         <controllerFile controllerName="Town">
           <actionMethod actionName="index"/>
           <actionMethod actionName="tavern"/>
+          <actionMethod actionName="blacksmith"/>
         </controllerFile>
         <controllerFile controllerName="Quest">
           <actionMethod actionName="index"/>
@@ -84,6 +85,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Town">
             <viewScriptFile forActionName="tavern"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Town">
+            <viewScriptFile forActionName="blacksmith"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

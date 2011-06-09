@@ -17,7 +17,7 @@ function IrontouchGameSetup(){
 	$('.travelLink').bind('click', function(){
 		loadingTravel();
 	    $.getJSON('/player/travel/to/home', function(data) {
-	        //alert(data); //uncomment this for debug
+	        //alert(data); ncomment this for debug
 	        //alert (data.item1+" "+data.item2+" "+data.item3); //further debug
 	        console.log(data.traveled);
 	        loadingTravelFinished(); 

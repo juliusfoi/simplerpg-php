@@ -18,8 +18,15 @@ class TownController extends Zend_Controller_Action
         
     }
 
+    public function blacksmithAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 
