@@ -3,7 +3,7 @@ function IrontouchGameSetup(){
 	$('#loadingBattle').hide();
 	$('.locationPicture').css('width', '200px');
 	$('.locationPicture').css('height', 'auto');
-	$('.attack-button').bind('click', function(){
+	$('.attack-button').live('click', function(){
 		loadingBattle();
 		var monsterId = $(this).attr('id');
 	    $.getJSON('/monster/attack/id/'+monsterId, function(data) {
@@ -14,7 +14,7 @@ function IrontouchGameSetup(){
 	        
 	    });
 	});
-	$('.travelLink').bind('click', function(){
+	$('.travelLink').live('click', function(){
 		loadingTravel();
 	    $.getJSON('/player/travel/to/home', function(data) {
 	        //alert(data); ncomment this for debug
@@ -29,5 +29,9 @@ function IrontouchGameSetup(){
 	}, function() {
 	    $(this).attr('src', '/media/game/quest-sign-small.png');
 	});
+	/*$('div.townLocation').live('click', function() {
+		
+		
+	});*/
 
 }
