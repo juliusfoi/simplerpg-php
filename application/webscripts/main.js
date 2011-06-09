@@ -29,9 +29,5 @@ function IrontouchGameSetup(){
 	}, function() {
 	    $(this).attr('src', '/media/game/quest-sign-small.png');
 	});
-	/*$('div.townLocation').live('click', function() {
-		
-		
-	});*/
 
 }

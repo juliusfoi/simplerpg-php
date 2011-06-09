@@ -41,11 +41,13 @@
           <dbTableFile dbTableName="Player"/>
           <dbTableFile dbTableName="Monster"/>
           <dbTableFile dbTableName="Quest"/>
+          <dbTableFile dbTableName="Npc"/>
         </dbTableDirectory>
         <modelFile modelName="PlayerMapper"/>
         <modelFile modelName="Monster"/>
         <modelFile modelName="MonsterMapper"/>
         <modelFile modelName="Quest"/>
+        <modelFile modelName="Npc"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
