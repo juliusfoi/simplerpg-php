@@ -16,7 +16,7 @@ Developement Snapshot
 Ressources
 ---------------
 
-[Zend Manual] [PHP net]
+[Zend Manual] . [PHP net]
 .
 
   [Zend Manual]: http://framework.zend.com/manual/en/
