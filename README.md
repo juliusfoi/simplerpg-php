@@ -17,9 +17,9 @@ Ressources
 ---------------
 
 [Zend Manual]
-[PHP .net]
+[PHP net]
 
   [Zend Manual]: http://framework.zend.com/manual/en/
-  [PHP .net]: http://php.net
+  [PHP net]: http://php.net
   [flattr me]: http://flattr.com/thing/291002/SimpleRPG-PHP
   [linktosnapshot]: http://imagr.eu/up/4dec099bf15d01_taleofzanesnapshot.png
