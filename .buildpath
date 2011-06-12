@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
+	<buildpathentry external="true" kind="lib" path="C:/Users/faits/simplerpg-phpV2/application"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry external="true" kind="lib" path="C:/Users/fait/simplerpg-php/library"/>
 	<buildpathentry kind="src" path=""/>

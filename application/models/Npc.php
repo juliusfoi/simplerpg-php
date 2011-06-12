@@ -72,5 +72,24 @@ class Application_Model_Npc
     	$this->_name = (string) $name;
     	return $this;
     }
+    
+    public function getQuest()
+    {
+    	if($this->_quest == null || $this->_quest == '')
+    		return null;
+    	else
+    	{
+    		$quest = Application_Model_Quest();
+    		$mapper = Application_Model_QuestMapper();
+    		$mapper->find($this->_quest, $quest);
+    		return $quest;	
+    	}
+    }
+    
+    public function setQuest($quest)
+    {
+    	$this->_quest = (int) $quest;
+    	return $this;
+    }
 }
 
