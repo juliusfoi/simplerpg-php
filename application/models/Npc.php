@@ -91,5 +91,19 @@ class Application_Model_Npc
     	$this->_quest = (int) $quest;
     	return $this;
     }
+
+    public function getTalk()
+    {
+    	if($this->_talk == null || $this->_talk == '')
+    		return null;
+    	else
+    		return $this->_talk;
+    }
+    
+    public function setTalk($talk)
+    {
+    	$this->_talk = (string) $talk;
+    	return $this;
+    }
 }
 
