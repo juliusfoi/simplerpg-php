@@ -98,8 +98,8 @@ class Application_Model_Npc
     		return null;
     	else
     	{
-    		$quest = Application_Model_Quest();
-    		$mapper = Application_Model_QuestMapper();
+    		$quest = new Application_Model_Quest();
+    		$mapper = new Application_Model_QuestMapper();
     		$mapper->find($this->_quest, $quest);
     		return $quest;	
     	}

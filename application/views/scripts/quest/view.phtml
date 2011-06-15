@@ -1,0 +1,14 @@
+<div id="quest" >
+	<div class="questTitle" >
+		<div class="questHeadBar" ></div>
+		<div style="float:left;background-image: url('/media/game/tavern-sign-small.png');background-repeat:no-repeat;background-position:center; 
+				width:170px;height:80px;max-height:80px;margin-top:-20px;">
+			<div class="innerQuestTitle"><span class="questTitle" >"<u><?php echo $this->quest->title; ?></u>"</span></div>
+		</div>
+		<div style="float:right;margin-right:20px;margin-top:10px;" ><img class="questSign" src="/media/game/quest-sign-small.png" alt="questsign" ></div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	<div class="questContent" ><?php echo $this->quest->content; ?></div>
+	<div class="questRewards" ><span>Experience: <?php echo $this->quest->experience;?> Gold: <?php echo $this->quest->gold; ?></span></div>
+</div>

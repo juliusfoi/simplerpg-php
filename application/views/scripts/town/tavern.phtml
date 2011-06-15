@@ -1,12 +1,14 @@
 <div id="tavern" >
 	<div id="npcs" >
+		<?php foreach($this->npcs as $npc): ?>
 		<div class="npc" id="ralf" >
 			<div></div>
 			<div style="background-color:#666666;">
-				<h3 style="color:white">Ralf</h3>
-				<span style="color:white">This guy looks like he has something to offer you!</span>
-				<button class="npcTalkButton" >Talk to him!</button>
+				<h3 style="color:white"><?php echo $npc->name; ?></h3>
+				<span style="color:white"><?php echo $npc->talk; ?></span>
+				<a href="<?php echo $this->url(array('action' => 'view', 'controller' => 'quest', 'id' => $npc->quest->id)); ?>"><button class="npcTalkButton" >Talk to him!</button></a>
 			</div>
 		</div>
+		<?php endforeach; ?>
 	</div>
 </div>

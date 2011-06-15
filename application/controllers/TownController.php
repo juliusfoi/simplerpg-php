@@ -15,7 +15,9 @@ class TownController extends Zend_Controller_Action
 
     public function tavernAction()
     {
-        
+        $mapper = new Application_Model_NpcMapper();
+        $npcs = $mapper->fetchAll();
+        $this->view->npcs = $npcs;
     }
 
     public function blacksmithAction()

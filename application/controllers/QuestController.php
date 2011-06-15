@@ -16,6 +16,17 @@ class QuestController extends Zend_Controller_Action
     	$this->view->quest = $quest;
     }
 
+    public function viewAction()
+    {
+    	$id = $this->_getParam("id");
+        $quest = new Application_Model_Quest();
+    	$mapper = new Application_Model_QuestMapper();
+    	$mapper->find($id,$quest);
+    	$this->view->quest = $quest;
+    }
+
 
 }
+
+
 
