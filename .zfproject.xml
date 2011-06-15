@@ -48,6 +48,7 @@
         <modelFile modelName="MonsterMapper"/>
         <modelFile modelName="Quest"/>
         <modelFile modelName="Npc"/>
+        <modelFile modelName="NpcMapper"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
