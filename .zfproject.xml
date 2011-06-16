@@ -43,6 +43,7 @@
           <dbTableFile dbTableName="Monster"/>
           <dbTableFile dbTableName="Quest"/>
           <dbTableFile dbTableName="Npc"/>
+          <dbTableFile dbTableName="Area"/>
         </dbTableDirectory>
         <modelFile modelName="PlayerMapper"/>
         <modelFile modelName="Monster"/>
@@ -50,6 +51,7 @@
         <modelFile modelName="Quest"/>
         <modelFile modelName="Npc"/>
         <modelFile modelName="NpcMapper"/>
+        <modelFile modelName="Area"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
