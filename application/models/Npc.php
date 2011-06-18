@@ -110,6 +110,22 @@ class Application_Model_Npc
     	$this->_quest = (int) $quest;
     	return $this;
     }
+    
+    public function getQuestId($questId)
+    {
+    	if($this->_quest->id != null)
+    	{
+    		return $this->_quest->id;
+    	}
+    	elseif(!($this->_quest instanceof Application_Model_Quest))
+    	{
+    		return $this->_quest;
+    	}
+    	else 
+    	{
+    		return $this->getQuest();
+    	}
+    }
 
     public function getTalk()
     {

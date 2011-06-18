@@ -52,6 +52,8 @@
         <modelFile modelName="Npc"/>
         <modelFile modelName="NpcMapper"/>
         <modelFile modelName="Area"/>
+        <modelFile modelName="Inventory"/>
+        <modelFile modelName="Item"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>

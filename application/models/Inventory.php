@@ -18,12 +18,10 @@
     along with SimpleRPG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class Application_Model_Area
+class Application_Model_Inventory
 {
 	protected $_id;
-	protected $_name;
-	protected $_access;
-	protected $_restriction;
+	protected $_player;
 	
 
 	public function __construct(array $options = null)
@@ -75,24 +73,6 @@ class Application_Model_Area
     {
     	$this->_id = (int) $id;
     	return $this;
-    }
-    
-    public function getAccess()
-    {
-    	if($this->_access == null)
-    		return null;
-    	else 
-    		return $this->_access;
-    }
-    
-    public function setAccees($access)
-    {
-    	if(is_int($access))
-    		$this->_access = (int) $access;
-    	elseif ($access instanceof Application_Model_Area)
-    		$this->_access = $access;
-    	else
-    		throw new Exception('No valid access. Try passing an variable of type int or of type Application_Model_Area');
     }
 
 }
