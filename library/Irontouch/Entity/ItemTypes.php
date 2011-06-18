@@ -18,7 +18,7 @@
     along with SimpleRPG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-class Irontouch_Entity_Item
+class Irontouch_Entity_ItemTypes
 {
 	protected static $_types = array(0 => 'sword',
 								1 => 'bow',
@@ -27,7 +27,7 @@ class Irontouch_Entity_Item
 	
 	public static function getTypeById($id)
 	{
-		$types = Irontouch_Entity_Item::_types;
+		$types = Irontouch_Entity_ItemTypes::_types;
 		return $types[$id];
 	}
 }
