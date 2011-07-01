@@ -1,0 +1,10 @@
+<?php foreach($this->entries as $entry): ?>
+<div <?php if($entry->id == 1 || $entry->restriction == 1) echo 'style="background-color:red;"'; ?> >
+	<b><?php echo $entry->name; ?></b>
+	<?php foreach ($this->entries as $subEntry): ?>
+		<?php if($subEntry->access == $entry->id): ?>
+			<i><?php echo '<span style="font-size:10px;">&#62; next region &#62;</span>'.$subEntry->name; ?></i>
+		<?php endif;?>
+	<?php endforeach; ?>
+</div>
+<?php endforeach; ?>

@@ -37,7 +37,7 @@ class Application_Model_Area
     {
         $method = 'set' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid player property');
+            throw new Exception('Invalid area property');
         }
         $this->$method($value);
     }
@@ -46,7 +46,7 @@ class Application_Model_Area
     {
         $method = 'get' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid player property');
+            throw new Exception('Invalid area property');
         }
         return $this->$method();
     }
@@ -77,6 +77,20 @@ class Application_Model_Area
     	return $this;
     }
     
+    public function getName()
+    {
+    	if($this->_name == null || $this->_name == '')
+    		return null;
+    	else
+    		return $this->_name;
+    }
+    
+    public function setName($name)
+    {
+    	$this->_name = (string) $name;
+    	return $this;
+    }
+    
     public function getAccess()
     {
     	if($this->_access == null)
@@ -85,14 +99,24 @@ class Application_Model_Area
     		return $this->_access;
     }
     
-    public function setAccees($access)
+    public function setAccess($access)
     {
-    	if(is_int($access))
-    		$this->_access = (int) $access;
-    	elseif ($access instanceof Application_Model_Area)
-    		$this->_access = $access;
+    	$this->_access = (int) $access;
+    	return $this;
+    }
+    
+    public function getRestriction()
+    {
+    	if($this->_restriction == null)
+    		return null;
     	else
-    		throw new Exception('No valid access. Try passing an variable of type int or of type Application_Model_Area');
+    		return $this->_restriction;
+    }
+    
+    public function setRestriction($restriction)
+    {
+    	$this->_restriction = (int) $restriction;
+    	return $this;
     }
 
 }

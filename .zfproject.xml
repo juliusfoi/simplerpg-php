@@ -31,6 +31,9 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="view"/>
         </controllerFile>
+        <controllerFile controllerName="Edit">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="PlayerProfile"/>
@@ -54,6 +57,7 @@
         <modelFile modelName="Area"/>
         <modelFile modelName="Inventory"/>
         <modelFile modelName="Item"/>
+        <modelFile modelName="AreaMapper"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -100,6 +104,9 @@
           <viewControllerScriptsDirectory forControllerName="Quest">
             <viewScriptFile forActionName="view"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Edit">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -139,6 +146,7 @@
           <testApplicationControllerFile filesystemName="WebscriptsControllerTest.php"/>
           <testApplicationControllerFile filesystemName="TownControllerTest.php"/>
           <testApplicationControllerFile filesystemName="QuestControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="EditControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

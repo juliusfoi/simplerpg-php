@@ -27,6 +27,9 @@ class Application_Model_Item
 	protected $_defense;
 	protected $_image;
 	protected $_requirement;
+	protected $_craftable;
+	protected $_buyable;
+	protected $_dropable;
 	
 
 	public function __construct(array $options = null)
@@ -105,11 +108,7 @@ class Application_Model_Item
     public function setType($type)
     {
     	$this->_type = (int) $type;
-    }
-    
-    public function getTypeName()
-    {
-    	
+    	return $this;
     }
 
 }

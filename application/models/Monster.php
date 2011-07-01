@@ -24,7 +24,7 @@ class Application_Model_Monster
 	protected $_name;
 	protected $_health;
 	protected $_attackDamage;
-	protected $_location;
+	protected $_areaId;
 	
 	public function __construct(array $options = null)
     {
@@ -113,17 +113,17 @@ class Application_Model_Monster
     	return $this;
     }
     
-	public function getLocation()
+	public function getAreaId()
     {
-    	if($this->_location != null)
-    		return  $this->_location;
+    	if($this->_areaId != null)
+    		return  $this->_areaId;
     	else
     		return null;
     }
     
-    public function setLocation($location)
+    public function setAreaId($areaId)
     {
-    	$this->_location = (string) $location;
+    	$this->_areaId = (int) $areaId;
     	return $this;
     }
 
