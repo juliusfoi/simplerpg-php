@@ -49,7 +49,7 @@ class Application_Model_MonsterMapper
     			'name' => $model->getName(),
     			'health' => new Zend_Db_Expr('health + '.$model->getHealth()),
     			'attackDamage' => $model->getAttackDamage(),
-    			'location' => $model->getLocation()
+    			'areaId' => $model->getAreaId()
     					);
     	$id = $model->getId();
     	foreach($data as $key => $value)
@@ -74,7 +74,7 @@ class Application_Model_MonsterMapper
     			'name' => $model->getName(),
     			'health' => $model->getHealth(),
     			'attackDamage' => $model->getAttackDamage(),
-    			'location' => $model->getLocation()
+    			'areaId' => $model->getAreaId()
     					);
     	$id = $model->getId();
     	foreach($data as $key => $value)
@@ -101,7 +101,7 @@ class Application_Model_MonsterMapper
                   ->setName($row->name)
                   ->setHealth($row->health)
                   ->setAttackDamage($row->attackDamage)
-                  ->setLocation($row->location);
+                  ->setAreaId($row->areaId);
     }
     
     public function fetchAll()
@@ -114,7 +114,7 @@ class Application_Model_MonsterMapper
                   ->setName($row->name)
                   ->setHealth($row->health)
                   ->setAttackDamage($row->attackDamage)
-                  ->setLocation($row->location);
+                  ->setAreaId($row->areaId);
             $entries[] = $entry;
         }
         return $entries;
