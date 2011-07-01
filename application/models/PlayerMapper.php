@@ -52,7 +52,7 @@ class Application_Model_PlayerMapper
     			'attackDamage' => $model->getAttackDamage(),
     			'defense' => $model->getDefense(),
     			'experience' => $model->getExperience(),
-    			'location' => $model->getLocation()
+    			'areaId' => $model->getAreaId()
     					);
     	if (null === ($id = $model->getId())) {
             unset($data['id']);
@@ -76,7 +76,7 @@ class Application_Model_PlayerMapper
                   ->setAttackDamage($row->attackDamage)
                   ->setDefense($row->defense)
                   ->setExperience($row->experience)
-                  ->setLocation($row->location);
+                  ->setAreaId($row->areaId);
     }
     
     public function fetchAll()
@@ -93,7 +93,7 @@ class Application_Model_PlayerMapper
                   ->setAttackDamage($row->attackDamage)
                   ->setDefense($row->defense)
                   ->setExperience($row->experience)
-                  ->setLocation($row->location);
+                  ->setAreaId($row->areaId);
             $entries[] = $entry;
         }
         return $entries;
@@ -109,7 +109,7 @@ class Application_Model_PlayerMapper
     			'defense' => new Zend_Db_Expr('defense + '.$model->getDefense()),
     			'attackDamage' => new Zend_Db_Expr('attackDamage + '.$model->getAttackDamage()),
     			'experience' => new Zend_Db_Expr('experience + '.$model->getExperience()),
-    			'location' => $model->getLocation()
+    			'areaId' => $model->getAreaId()
     					);
     	$id = $model->getId();
     	foreach($data as $key => $value)
