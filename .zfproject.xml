@@ -48,6 +48,7 @@
           <dbTableFile dbTableName="Npc"/>
           <dbTableFile dbTableName="Area"/>
           <dbTableFile dbTableName="MonsterInstance"/>
+          <dbTableFile dbTableName="QuestInstance"/>
         </dbTableDirectory>
         <modelFile modelName="PlayerMapper"/>
         <modelFile modelName="Monster"/>

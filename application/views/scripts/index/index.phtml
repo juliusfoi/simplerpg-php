@@ -3,7 +3,7 @@
 	<p class="listHeading">List of all Players</p>
 	<?php foreach ($this->players as $entry): ?>
 	<?php $this->placeholder('userName')->set($entry->name); ?>
-	<?php $this->placeholder('playerLocation')->set($entry->location); ?>
+	<?php $this->placeholder('playerLocation')->set($entry->getLocation().'('.$entry->areaId.')'); ?>
 	<div class="player">
 		<?php echo '<span class="playerName" title="'.$entry->id.'">Name '.$entry->name.'</span>&nbsp;&nbsp;'; ?>
 		<span class="playerHealth" ><?php echo "Health ".$entry->health."&nbsp;&nbsp;"; ?></span>
