@@ -53,7 +53,7 @@ class Application_Model_QuestInstanceMapper
     public function save(Application_Model_QuestInstance $model)
     {
     	$data = array(
-    			'playerId' => $model->getName(),
+    			'playerId' => $model->getPlayerId(),
     			'questId' => $model->getQuestId(),
     			'monsterCount' => $model->getMonsterCount(),
     			'objectiveStatus' => $model->getObjectiveStatus(),
@@ -77,7 +77,7 @@ class Application_Model_QuestInstanceMapper
     {
     	$result = $this->getDbTable()->find($id);
         if (0 == count($result)) {
-            return;
+            return false;
         }
         $row = $result->current();
         $model->setId($row->id)
@@ -86,11 +86,31 @@ class Application_Model_QuestInstanceMapper
               ->setMonsterCount($row->monsterCount)
               ->setObjectiveStatus($row->objectiveStatus)
               ->setStatus($row->status);
+        return true;
     }
     
     public function fetchAll()
     {
         $resultSet = $this->getDbTable()->fetchAll();
+        $entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Application_Model_QuestInstance();
+            $entry->setId($row->id)
+                  ->setPlayerId($row->playerId)
+                  ->setQuestId($row->questId)
+                  ->setMonsterCount($row->monsterCount)
+                  ->setObjectiveStatus($row->objectiveStatus)
+                  ->setStatus($row->status);
+            $entries[] = $entry;
+        }
+        return $entries;
+    }
+    
+    public function fetchNew()
+    {
+    	$table = $this->getDbTable();
+    	$where = $table->select()->where('status = ?', 'accepted');
+    	$resultSet = $this->getDbTable()->fetchAll($where);
         $entries   = array();
         foreach ($resultSet as $row) {
             $entry = new Application_Model_QuestInstance();

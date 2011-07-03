@@ -109,9 +109,14 @@ class Application_Model_QuestInstance
     
     public function setStatus($status)
     {
-    	$this->_status = (int) $status;
+    	$this->_status = $status;
     	return $this;
-    } 
+    }
+    
+    public function importModel(Application_Model_Quest $quest)
+    {
+    	$this->_questId = $quest->id;
+    }
 
 }
 

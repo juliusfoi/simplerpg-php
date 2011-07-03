@@ -30,9 +30,11 @@ class IndexController extends Zend_Controller_Action
 	{
 		$monsterMapper = new Application_Model_MonsterMapper();
 		$playerMapper = new Application_Model_PlayerMapper();
-
+		$questInstanceMapper = new Application_Model_QuestInstanceMapper();
+		
 		$this->view->entries = $monsterMapper->fetchAll();
 		$this->view->players = $playerMapper->fetchAll();
+		//$this->view->newQuests = count($questInstanceMapper->fetchNew());
 	}
 
 

@@ -1,3 +1,9 @@
+<?php if($this->alreadyAccepted): ?>
+<div>
+	<span>You've already accepted this quest!</span>
+</div>
+<?php endif; ?>
+<?php if(!$this->alreadyAccepted): ?>
 <div id="quest" >
 	<div class="questTitle" >
 		<div class="questHeadBar" ></div>
@@ -11,5 +17,10 @@
 	<div class="clear"></div>
 	<div class="questContent" ><?php echo $this->quest->content; ?></div>
 	<div class="questRewards" ><span>Experience: <?php echo $this->quest->experience;?> Gold: <?php echo $this->quest->gold; ?></span></div>
-	<div class="questControls" ><button>Accept this great offer!</button></div>
+	<div class="questControls" >
+		<form method="POST" action="<?php echo $this->url(array('action' => 'accept', 'controller' => 'quest', 'id' => $this->quest->id, 'playerId' => 1)); ?>" >
+			<button type="submit" >Accept this great offer!</button>
+		</form>
+	</div>
 </div>
+<?php endif; ?>
