@@ -55,4 +55,8 @@ class Entity
     	$this->_id = (int) $id;
     	return $this;
     }
+    
+    public function importModel(Entity $model);
+    
+    
 }

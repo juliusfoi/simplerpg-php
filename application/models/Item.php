@@ -110,6 +110,90 @@ class Application_Model_Item
     	$this->_type = (int) $type;
     	return $this;
     }
+    
+    public function getDamage()
+    {
+    	if($this->_damage == null)
+    		return null;
+    	else
+    		return $this->_damage;
+    }
+    
+    public function setDamage($damage)
+    {
+    	$this->_damage = (int) $damage;
+    	return $this;
+    }
+    
+    public function getDefense()
+    {
+    	if($this->_defense == null)
+    		return null;
+    	else
+    		return $this->_defense;
+    }
+    
+    public function setDefense($defense)
+    {
+    	$this->_defense = (int) $defense;
+    	return $this;
+    }
+    
+    public function getImage()
+    {
+    	if($this->_image == null)
+    		return null;
+    	else
+    		return $this->_image;
+    }
+    
+    public function setImage($image)
+    {
+    	$this->_image = (int) $image;
+    	return $this;
+    }
+    
+    public function getRequirement()
+    {
+    	if($this->_requirement == null)
+    		return null;
+    	else
+    		return $this->_requirement;
+    }
+    
+    public function setRequirement($requirement)
+    {
+    	$this->_requirement = (int) $requirement;
+    	return $this;
+    }
+    
+    public function getCraftable()
+    {
+    	if($this->_craftable == null)
+    		return null;
+    	else
+    		return $this->_craftable;
+    }
+    
+    public function setCraftable($craftable)
+    {
+    	$this->_craftable = (bool) $craftable;
+    	return $this;
+    }
+    
+    public function getBuyable()
+    {
+    	if($this->_buyable == null)
+    		return null;
+    	else
+    		return $this->_buyable;
+    }
+    
+    public function setBuyable($buyable)
+    {
+    	$this->_buyable = (bool) $buyable;
+    	return $this;
+    }
 
 }
 

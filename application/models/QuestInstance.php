@@ -113,7 +113,7 @@ class Application_Model_QuestInstance
     	return $this;
     }
     
-    public function importModel(Application_Model_Quest $quest)
+    public function importModelId(Application_Model_Quest $quest)
     {
     	$this->_questId = $quest->id;
     }
