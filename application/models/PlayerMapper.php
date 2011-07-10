@@ -17,8 +17,9 @@
     You should have received a copy of the GNU General Public License
     along with SimpleRPG.  If not, see <http://www.gnu.org/licenses/>.
 */
+use Irontouch\Entity\EntityMapper;
 
-class Application_Model_PlayerMapper
+class Application_Model_PlayerMapper extends EntityMapper
 {
 	protected $_dbTable;
 	

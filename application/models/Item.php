@@ -194,6 +194,20 @@ class Application_Model_Item
     	$this->_buyable = (bool) $buyable;
     	return $this;
     }
+    
+    public function getDropable()
+    {
+    	if($this->_dropable == null)
+    		return null;
+    	else
+    		return $this->_dropable;
+    }
+    
+    public function setDropable($dropable)
+    {
+    	$this->_dropable = (bool) $dropable;
+    	return $this;
+    }
 
 }
 

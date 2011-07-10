@@ -25,7 +25,7 @@ class Entity
     {
         $method = 'get' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid player property');
+            throw new Exception('Invalid '. get_class($this) .' property');
         }
         return $this->$method();
     }
@@ -54,9 +54,6 @@ class Entity
     {
     	$this->_id = (int) $id;
     	return $this;
-    }
-    
-    public function importModel(Entity $model);
-    
+    } 
     
 }

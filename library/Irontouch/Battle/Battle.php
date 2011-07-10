@@ -27,13 +27,13 @@ class Irontouch_Battle_Battle
 	private $_monsterMapper;
 	private $_playerMapper;
 	
-	public function __construct(Application_Model_Player $player, Application_Model_Monster $monster)
+	public function __construct(Application_Model_Player $player, Application_Model_MonsterInstance $monster)
 	{
 		if(null == $player || !(get_class($player) == "Application_Model_Player"))
 			throw new Exception("No player model");
 		else
 			$this->_player = $player;
-		if(null == $monster || 	!(get_class($monster) == "Application_Model_Monster"))
+		if(null == $monster || 	!(get_class($monster) == "Application_Model_MonsterInstance"))
 			throw new Exception("No monster model");
 		else
 			$this->_monster = $monster;
@@ -42,7 +42,7 @@ class Irontouch_Battle_Battle
 	public function init()
 	{
 		$this->_playerMapper = $playerMapper = new Application_Model_PlayerMapper();
-		$this->_monsterMapper = $monsterMapper = new Application_Model_MonsterMapper();
+		$this->_monsterMapper = $monsterMapper = new Application_Model_MonsterInstanceMapper();
 		
 		$playerMapper->find($this->_player->id, $this->_player);
 		$monsterMapper->find($this->_monster->id, $this->_monster);

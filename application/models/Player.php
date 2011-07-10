@@ -150,6 +150,10 @@ class Application_Model_Player extends Entity
     	$mapper->find($this->areaId, $area);
     	return $area->getName();
     }
+    
+    public function importModel(Application_Model_Player $model)
+    {
+    }
  
 }
 
