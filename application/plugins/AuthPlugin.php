@@ -13,8 +13,7 @@ class Application_Plugin_AuthPlugin extends Zend_Controller_Plugin_Abstract
 	   		$storage = new Zend_Auth_Storage_Session();
 	        $data = $storage->read();
 	        if(!$data){
-	        	$request->setControllerName("index");
-	        	$request->setActionName("");
+	        	// ....
 	        }
    		}
         //$this->view->username = $data->username;     

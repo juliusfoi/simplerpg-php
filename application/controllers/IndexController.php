@@ -18,6 +18,7 @@
     along with SimpleRPG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 class IndexController extends Zend_Controller_Action
 {
 
@@ -35,6 +36,36 @@ class IndexController extends Zend_Controller_Action
 		$this->view->entries = $monsterMapper->fetchAll();
 		$this->view->players = $playerMapper->fetchAll();
 		//$this->view->newQuests = count($questInstanceMapper->fetchNew());
+	}
+	
+	public function loginAction()
+	{
+		if($this->_getParam("user"))
+		{
+			
+		}
+		else
+		{
+			$username = $this->_getParam('username');
+			$password = $this->_getParam('password');
+			$mapper = new Application_Model_UserMapper();
+			$salt = $mapper->findSaltByName($username);
+			$user = new Application_Model_User();
+			$user->setUsername($username)->hash($password); // fail
+			$user->findByName($username);
+			
+			$auth_adapter = new Irontouch_Auth_LoginAuth($username, $password, $user);
+			
+			$auth = Zend_Auth::getInstance();
+			if( $auth->authenticate($auth_adapter) )
+			{
+				$this->_redirect(array('controller' => 'index' , 'action' => 'index', 'login' => 'done'));
+			}
+			else
+			{
+				$this->_redirect(array('controller' => 'index' , 'action' => 'index', 'login' => 'failed'));
+			}
+		}
 	}
 
 
