@@ -9,6 +9,7 @@ class Application_Model_Quest
 	protected $_npc;
 	protected $_gold;
 	protected $_experience;
+	protected $_monsterlist;
 
     public function __construct(array $options = null)
     {
@@ -144,6 +145,50 @@ class Application_Model_Quest
     	$this->_location = (string) $location;
     	return $this;
     }
+    
+	public function getMonsterlist()
+    {
+    	if($this->_monsterlist != null)
+    	{
+    		if(is_string($this->_monsterlist))
+    			return unserialize($this->_monsterlist);
+    		else
+    			return $this->_monsterlist;	
+    	}
+    	else
+    		return null;
+    }
+    
+    public function getRawMonsterlist()
+    {
+    	if($this->_monsterlist != null)
+    	{
+    		if(is_array($this->_monsterlist))
+    			return serialize($this->_monsterlist);
+    		else
+    			return $this->_monsterlist;	
+    	}
+    	else
+    		return null;
+    }
+    
+    public function setMonsterlist($monsterlist)
+    {
+    	$this->_monsterlist = $monsterlist;
+    	return $this;
+    }
+    
+	/**
+	 * Enter description here ...
+	 * @param unknown_type $monsterlist
+	 * @return Application_Model_Quest
+	 */
+	public function setMonsterlistByRaw($monsterlist)
+    {
+    	$this->_monsterlist = unserialize($monsterlist);
+    	return $this;
+    }
+    
 
 }
 

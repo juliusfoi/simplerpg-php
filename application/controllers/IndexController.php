@@ -36,6 +36,10 @@ class IndexController extends Zend_Controller_Action
 		$this->view->entries = $monsterMapper->fetchAll();
 		$this->view->players = $playerMapper->fetchAll();
 		//$this->view->newQuests = count($questInstanceMapper->fetchNew());
+		$bootstrap = Zend_Controller_Front::getInstance()->getParam('bootstrap');
+    	$options = $bootstrap->getOptions();
+    	$app_secret = $options['security']['cryptography']['app_secret'];
+    	$this->view->appsecret = $app_secret;
 	}
 	
 	public function loginAction()

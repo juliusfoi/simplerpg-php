@@ -49,7 +49,8 @@ class Application_Model_QuestMapper
     			'content' => $model->getContent(),
     			'experience' => $model->getExperience(),
     			'gold' => $model->getGold(),
-    			'npc' => $model->getNpc()
+    			'npc' => $model->getNpc(),
+    			'monsterlist' => $model->getRawMonsterlist()
     					);
     	if (null === ($id = $model->getId())) {
             unset($data['id']);
@@ -69,7 +70,8 @@ class Application_Model_QuestMapper
                   ->setTitle($row->title)
                   ->setContent($row->content)
                   ->setGold($row->gold)
-                  ->setExperience($row->experience);
+                  ->setExperience($row->experience)
+                  ->setMonsterlistByRaw($row->monsterlist);
     }
     
     public function fetchAll()
@@ -82,7 +84,8 @@ class Application_Model_QuestMapper
                   ->setTitle($row->title)
                   ->setContent($row->content)
                   ->setGold($row->gold)
-                  ->setExperience($row->experience);
+                  ->setExperience($row->experience)
+                  ->setMonsterlistByRaw($row->monsterlist);
             $entries[] = $entry;
         }
         return $entries;
@@ -95,7 +98,8 @@ class Application_Model_QuestMapper
     			'content' => $model->getContent(),
     			'npc' => $model->getNpc(),
     			'gold' => new Zend_Db_Expr('gold + '.$model->getGold()),
-    			'experience' => new Zend_Db_Expr('experience + '.$model->getExperience())
+    			'experience' => new Zend_Db_Expr('experience + '.$model->getExperience()),
+    			'monsterlist' => $model->getRawMonsterlist()
     					);
     	$id = $model->getId();
     	foreach($data as $key => $value)
