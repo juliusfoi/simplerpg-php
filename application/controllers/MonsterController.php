@@ -66,6 +66,11 @@ class MonsterController extends Zend_Controller_Action
 		$mapper = new Application_Model_MonsterMapper();
 		$mapper->save($monster);
 	}
+	
+	public function battleAction()
+	{
+		
+	}
 
 
 }

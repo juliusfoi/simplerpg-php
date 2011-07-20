@@ -256,6 +256,11 @@
     	background-image: url("http://i607.photobucket.com/albums/tt155/arturia00/old_crackly_parchment_texture_by_Te.png?t=1262961261");
     }
     
+    div.spell
+    {
+    	float:left;
+    }
+    
     
 </style>
 </head>
@@ -298,7 +303,7 @@
 				<span>You are here: <span class="playerLocation" ><?php echo $this->placeholder('playerLocation'); ?></span></span>
 			</div>
 			<hr style="margin-bottom:40px;">
-			<?php echo $this->layout()->content; ?>
+			<div><?php echo $this->layout()->content; ?></div>
 		</div>
 	</div>
 </div>
