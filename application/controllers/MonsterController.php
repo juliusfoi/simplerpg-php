@@ -47,7 +47,7 @@ class MonsterController extends Zend_Controller_Action
 		$id = $this->_getParam("id", null);
 		if($id == null)
 			return;
-		$monster = new Application_Model_Monster();
+		$monster = new Application_Model_MonsterInstance();
 		$player = new Application_Model_Player();
 		$monster->setId($id);
 		$player->setId(1);

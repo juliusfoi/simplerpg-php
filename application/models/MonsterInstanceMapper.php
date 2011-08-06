@@ -27,7 +27,7 @@ class Application_Model_MonsterInstanceMapper
     public function update(Application_Model_MonsterInstance $model)
     {
     	$data = array(
-    			'playerId' => $model->getName(),
+    			'playerId' => $model->getPlayerId(),
     			'monsterId' => $model->getMonsterId(),
     			'areaId' => $model->getAreaId(),
     			'health' => new Zend_Db_Expr('health + '.$model->getHealth())
@@ -52,7 +52,7 @@ class Application_Model_MonsterInstanceMapper
     public function save(Application_Model_MonsterInstance $model)
     {
     	$data = array(
-    			'playerId' => $model->getName(),
+    			'playerId' => $model->getPlayerId(),
     			'monsterId' => $model->getMonsterId(),
     			'areaId' => $model->getAreaId(),
     			'health' => $model->getHealth()
@@ -99,6 +99,14 @@ class Application_Model_MonsterInstanceMapper
             $entries[] = $entry;
         }
         return $entries;
+    }
+    
+    public function getOriginal(Application_Model_MonsterInstance $monster)
+    {
+    	$mapper = new Application_Model_MonsterMapper();
+		$original = new Application_Model_Monster();
+    	$mapper->find($monster->id, $original);
+    	return $original;
     }
 
 }

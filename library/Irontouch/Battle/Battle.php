@@ -43,12 +43,13 @@ class Irontouch_Battle_Battle
 	{
 		$this->_playerMapper = $playerMapper = new Application_Model_PlayerMapper();
 		$this->_monsterMapper = $monsterMapper = new Application_Model_MonsterInstanceMapper();
+		$monster = $monsterMapper->getOriginal($this->_monster);
 		
 		$playerMapper->find($this->_player->id, $this->_player);
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
 		$this->_monster->health -= (int) $this->_player->attackDamage;
-		$this->_player->health -= ($this->_monster->attackDamage * ($this->_player->defense / 100));
+		$this->_player->health -= ($monster->attackDamage * ($this->_player->defense / 100));
 		$monsterMapper->save($this->_monster);
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
