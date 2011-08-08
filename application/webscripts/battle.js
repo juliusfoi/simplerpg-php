@@ -23,9 +23,9 @@ function updatePlayer(player){
 }
 
 function updateMonster(monster){
-	$("div.monster").children("span.monsterName").text(monster.name+"  ").effect("highlight", {}, 3000);
+	//$("div.monster").children("span.monsterName").text(monster.name+"  ").effect("highlight", {}, 3000);
 	$("div.monster").children("span.monsterHealth").text(monster.health+"  ").effect("highlight", {}, 3000);
-	$("div.monster").children("span.monsterAttackDamage").text(monster.attackDamage+"  ").effect("highlight", {}, 3000);
+	//$("div.monster").children("span.monsterAttackDamage").text(monster.attackDamage+"  ").effect("highlight", {}, 3000);
 }
 function loadingBattle(){
 	$('#loadingBattle').show();
