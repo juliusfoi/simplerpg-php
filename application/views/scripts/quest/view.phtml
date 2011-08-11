@@ -16,6 +16,13 @@
 	</div>
 	<div class="clear"></div>
 	<div class="questContent" ><?php echo $this->quest->content; ?></div>
+	<div class="questObjective" style="padding:15px 15px 15px 15px" >
+		<div style="float:right;">
+			<span>Slay:</span>
+			<div class="questObjectiveMonster" style="border-style:solid;border-width:5px;height:80px;width:160px;border-color:lightgreen;" ><?php echo $this->quest->monsterList[0]; ?></div>
+		</div>
+		<br />
+	</div>
 	<div class="questRewards" ><span>Experience: <?php echo $this->quest->experience;?> Gold: <?php echo $this->quest->gold; ?></span></div>
 	<div class="questControls" >
 		<form method="POST" action="<?php echo $this->url(array('action' => 'accept', 'controller' => 'quest', 'id' => $this->quest->id, 'playerId' => 1)); ?>" >

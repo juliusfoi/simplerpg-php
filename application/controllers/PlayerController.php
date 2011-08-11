@@ -24,6 +24,7 @@ class PlayerController extends Zend_Controller_Action
 	
 	public function travelAction()
 	{
+		// @todo Add more Validation so that the player can not insta-travel to any desired location
 		$locations = array(1, 2, 3, 4, 5, 6);
 		$this->_helper->layout()->disableLayout();
 		$areaId = $this->_getParam("to", 1);

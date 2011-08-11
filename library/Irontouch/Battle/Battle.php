@@ -26,6 +26,7 @@ class Irontouch_Battle_Battle
 	protected $_player;
 	private $_monsterMapper;
 	private $_playerMapper;
+	private $_condition;
 	
 	public function __construct(Application_Model_Player $player, Application_Model_MonsterInstance $monster)
 	{
@@ -37,6 +38,7 @@ class Irontouch_Battle_Battle
 			throw new Exception("No monster model");
 		else
 			$this->_monster = $monster;
+		$this->_condition = new Irontouch_Battle_Condition($this);
 	}
 	
 	public function init()

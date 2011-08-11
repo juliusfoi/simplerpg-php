@@ -34,6 +34,9 @@
         <controllerFile controllerName="Edit">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Worldmap">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="PlayerProfile"/>
@@ -118,6 +121,9 @@
           <viewControllerScriptsDirectory forControllerName="Edit">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Worldmap">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -158,6 +164,7 @@
           <testApplicationControllerFile filesystemName="TownControllerTest.php"/>
           <testApplicationControllerFile filesystemName="QuestControllerTest.php"/>
           <testApplicationControllerFile filesystemName="EditControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="WorldmapControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

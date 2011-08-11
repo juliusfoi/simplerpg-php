@@ -91,6 +91,29 @@ class Application_Model_QuestMapper
         return $entries;
     }
     
+    public function fetchAllById($ids)
+    {
+    	$resultSet = $this->getDbTable()->fetchAll();
+        $entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Application_Model_Quest();
+            $entry->setId($row->id)
+                  ->setTitle($row->title)
+                  ->setContent($row->content)
+                  ->setGold($row->gold)
+                  ->setExperience($row->experience)
+                  ->setMonsterlistByRaw($row->monsterlist);
+            $entries[] = $entry;
+        }
+        $result = array();
+        foreach ($entries as $entry)
+        {
+        	if(in_array($entry->id, $ids))
+        		$result[] = $entry;
+        }
+        return $result;
+    }
+    
     public function update(Application_Model_Quest $model)
     {
     	$data = array(

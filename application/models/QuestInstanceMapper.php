@@ -124,6 +124,25 @@ class Application_Model_QuestInstanceMapper
         }
         return $entries;
     }
+    
+    public function fetchByPlayerId($id)
+    {
+    	$table = $this->getDbTable();
+    	$where = $table->select()->where('playerId = ?', $id);
+    	$resultSet = $this->getDbTable()->fetchAll($where);
+        $entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Application_Model_QuestInstance();
+            $entry->setId($row->id)
+                  ->setPlayerId($row->playerId)
+                  ->setQuestId($row->questId)
+                  ->setMonsterCount($row->monsterCount)
+                  ->setObjectiveStatus($row->objectiveStatus)
+                  ->setStatus($row->status);
+            $entries[] = $entry;
+        }
+        return $entries;
+    }
 	
 
 }
