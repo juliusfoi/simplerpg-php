@@ -56,6 +56,7 @@ class Irontouch_Battle_Battle
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
 		$this->finished = true;
+		$this->_condition->checkForConditions();
 		
 		return $this;
 	}
