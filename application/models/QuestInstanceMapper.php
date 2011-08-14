@@ -27,7 +27,7 @@ class Application_Model_QuestInstanceMapper
     public function update(Application_Model_QuestInstance $model)
     {
     	$data = array(
-    			'playerId' => $model->getName(),
+    			'playerId' => $model->getPlayerId(),
     			'questId' => $model->getQuestId(),
     			'monsterCount' => $model->getMonsterCount(),
     			'objectiveStatus' => $model->getObjectiveStatus(),
@@ -39,7 +39,6 @@ class Application_Model_QuestInstanceMapper
     		if($value == null || !isset($value) || $value == '' || $value == ' ' || $value == ',')
     		{
     			unset($data[$key]);
-    			echo $key;	
     		}
     	}
     	if (null === $id ) {

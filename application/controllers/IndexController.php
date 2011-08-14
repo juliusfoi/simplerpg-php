@@ -37,6 +37,10 @@ class IndexController extends Zend_Controller_Action
 		$this->view->players = $playerMapper->fetchAll();
 		//$this->view->newQuests = count($questInstanceMapper->fetchNew());
 		$bootstrap = Zend_Controller_Front::getInstance()->getParam('bootstrap');
+		
+		$logger = Zend_Registry::get("logger");
+		$logger->log('This is a log message!', Zend_Log::INFO);
+		
     	$options = $bootstrap->getOptions();
     	$app_secret = $options['security']['cryptography']['app_secret'];
     	$this->view->appsecret = $app_secret;

@@ -22,11 +22,12 @@ class Irontouch_Battle_Battle
 {
 	public $finished;
 	public $rewarded;
-	protected $_monster;
-	protected $_player;
-	private $_monsterMapper;
-	private $_playerMapper;
-	private $_condition;
+	public $_monster;
+	public $_player;
+	public $_monsterMapper;
+	public $_playerMapper;
+	private $_commandProcessList;
+	//private $_condition;
 	
 	public function __construct(Application_Model_Player $player, Application_Model_MonsterInstance $monster)
 	{
@@ -38,39 +39,42 @@ class Irontouch_Battle_Battle
 			throw new Exception("No monster model");
 		else
 			$this->_monster = $monster;
-		$this->_condition = new Irontouch_Battle_Condition($this);
+		//$this->_condition = new Irontouch_Battle_Condition($this);
 	}
 	
 	public function init()
 	{
 		$this->_playerMapper = $playerMapper = new Application_Model_PlayerMapper();
 		$this->_monsterMapper = $monsterMapper = new Application_Model_MonsterInstanceMapper();
-		$monster = $monsterMapper->getOriginal($this->_monster);
 		
 		$playerMapper->find($this->_player->id, $this->_player);
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
-		$this->_monster->health -= (int) $this->_player->attackDamage;
+		/*$this->_monster->health -= (int) $this->_player->attackDamage;
 		$this->_player->health -= ($monster->attackDamage * ($this->_player->defense / 100));
 		$monsterMapper->save($this->_monster);
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
-		$this->finished = true;
-		$this->_condition->checkForConditions();
+		$this->finished = true;*/
+		
+		//$this->_condition->checkForConditions();
 		
 		return $this;
 	}
 	
-	public function reward()
+	public function processCommands($commandList)
 	{
-		if($this->finished)
+		foreach ($commandList as $command) 
 		{
-			$this->_player->experience += $this->_monster->getHealth() / 10;
-			$this->_playerMapper->save($this->_player);
-			$this->rewarded = true;
-			return $this;
+			$this->_commandProcessList = new $command['name']($this, $command['autoRun']);
 		}
-		return $this;
+		//$command = new Irontouch_Battle_AttackCommand($this);
+	}
+	
+	public function checkConditions()
+	{
+		$conditions = new Irontouch_Battle_Condition($this);
+		$conditions->checkForConditions();
 	}
 	
 	public function getUpdatedValues()

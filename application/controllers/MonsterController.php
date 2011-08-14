@@ -52,7 +52,7 @@ class MonsterController extends Zend_Controller_Action
 		$monster->setId($id);
 		$player->setId(1);
 		$battle = new Irontouch_Battle_Battle($player, $monster);
-		$update = $battle->init()->reward()->getUpdatedValues();
+		$update = $battle->init()->getUpdatedValues();//->reward()->getUpdatedValues();
 		$this->view->updatedValues = array("updatedValues" => $update);
 	}
 

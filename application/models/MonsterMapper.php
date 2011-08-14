@@ -57,7 +57,6 @@ class Application_Model_MonsterMapper
     		if($value == null || !isset($value) || $value == '' || $value == ' ' || $value == ',')
     		{
     			unset($data[$key]);
-    			echo $key;	
     		}
     	}
     	if (null === $id ) {
