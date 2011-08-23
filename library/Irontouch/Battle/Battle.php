@@ -58,6 +58,7 @@ class Irontouch_Battle_Battle
 		$this->finished = true;*/
 		
 		//$this->_condition->checkForConditions();
+		$attackCommand = new Irontouch_Battle_AttackCommand($this);
 		
 		return $this;
 	}

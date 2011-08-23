@@ -1,0 +1,22 @@
+<div id="userCreationArea" style="background-color:white;">
+	<div>
+		<form method="post" action="<?php echo $this->url(array('action' => 'create', 'controller' => 'user') , null, true); ?>">
+			<label>Your hero's class</label>
+			<select name="class" onchange="showValue(this.value)" style="width:180px;">
+			  <option value="warrior" title="/media/game/warrior.png" >Warrior</option>
+			  <option value="mage" title="/media/game/warlock_of_the_scholomance.png" >Mage</option>
+			  <option value="rogue" title="/media/game/journeyman.png" >Rogue</option>
+			</select><br />
+			<label>Your hero's name</label><input style="height:32px;width:180px;" name="heroname" type="text" /><br />
+			<hr />
+			<div id="userCreationCredentials">
+				<label>Username</label><input name="username" type="text" /><br />
+				<label>eMail</label><input name="email" type="text" /><br />
+				<label>re-type eMail</label><input name="repeatmail" type="text" /><br />
+				<label>Password</label><input name="password" type="password" /><br />
+				<label>re-type Password</label><input name="repeatpassword" type="password" /><br />
+			</div>
+			<input type="submit" name="Create" />
+		</form>
+	</div>
+</div>

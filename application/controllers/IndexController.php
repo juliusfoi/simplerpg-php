@@ -59,7 +59,7 @@ class IndexController extends Zend_Controller_Action
 			$mapper = new Application_Model_UserMapper();
 			$salt = $mapper->findSaltByName($username);
 			$user = new Application_Model_User();
-			$user->setUsername($username)->hash($password); // fail
+			$user->setUsername($username)->hash($password); // fail, really?
 			$user->findByName($username);
 			
 			$auth_adapter = new Irontouch_Auth_LoginAuth($username, $password, $user);

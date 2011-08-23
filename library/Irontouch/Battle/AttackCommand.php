@@ -46,9 +46,13 @@ class Irontouch_Battle_AttackCommand extends Irontouch_Battle_BattleCommand
 				$monster = $battle->_monsterMapper->getOriginal($battle->_monster);
 				$battle->_monster->health -= (int) $battle->_player->attackDamage;
 				$battle->_player->health -= ($monster->attackDamage * ($battle->_player->defense / 100));
+				if(!$battle->_monster->isAlive())
+				{
+					$battle->_monster->health = 0;
+					$reward = $this->getRewardClass();
+					$reward->run();
+				}
 				$battle->_monsterMapper->save($battle->_monster);
-				$reward = $this->getRewardClass();
-				$reward->run();
 			}
 			else
 				$this->onError("No player or monster found on the main battle class!");

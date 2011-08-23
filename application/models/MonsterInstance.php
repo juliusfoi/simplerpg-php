@@ -111,6 +111,11 @@ class Application_Model_MonsterInstance
     	$this->_health = (int) $health;
     	return $this;
     }
+    
+	public function isAlive()
+    {
+    	return ($this->_health > 0);
+    }
 
 
 }

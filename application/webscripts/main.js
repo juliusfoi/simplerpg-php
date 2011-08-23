@@ -1,4 +1,11 @@
 function IrontouchGameSetup(){
+	try {
+		$("body select").msDropDown();
+		} catch(e) {
+		alert(e.message);
+		}
+	$("body select").msDropDown({visibleRows:3, rowHeight:32});
+		
 	loadingTravelFinished();
 	$('#loadingBattle').hide();
 	$('.locationPicture').css('width', '200px');

@@ -55,6 +55,7 @@ class Application_Model_UserMapper extends EntityMapper
     	if (null === ($id = $model->getId())) {
             unset($data['id']);
             $this->getDbTable()->insert($data);
+            return $this->getDbTable()->lastInsertId();
         } else {
             $this->getDbTable()->update($data, array('id = ?' => $id));
         }

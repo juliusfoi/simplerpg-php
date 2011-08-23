@@ -33,6 +33,13 @@ class Application_Model_MonsterInstanceMapper
     			'health' => new Zend_Db_Expr('health + '.$model->getHealth())
     					);
     	$id = $model->getId();
+    	
+    	if(!$model->isAlive())
+    	{
+    		$this->getDbTable()->delete($data);
+    		return;
+    	}
+    		
     	foreach($data as $key => $value)
     	{
     		if($value == null || !isset($value) || $value == '' || $value == ' ' || $value == ',')
@@ -57,6 +64,13 @@ class Application_Model_MonsterInstanceMapper
     			'health' => $model->getHealth()
     					);
     	$id = $model->getId();
+    	
+    	if(!$model->isAlive())
+    	{
+    		$this->getDbTable()->delete($data);
+    		return;
+    	}
+    	
     	foreach($data as $key => $value)
     	{
     		if($value == null || !isset($value) || $value == '')

@@ -126,6 +126,6 @@ class Application_Model_Monster
     	$this->_areaId = (int) $areaId;
     	return $this;
     }
-
+    
 }
 
