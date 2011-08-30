@@ -49,6 +49,15 @@ function loadingTravelFinished(){
 	$('#loadingTravel').hide();
 }
 
+function arrayToParamString(data){
+	paramstring = '';
+	for(param in data)
+	{
+		paramstring += '/'+data[param][0]+'/'+data[param][1];
+	}
+	return paramstring;
+}
+
 function Player(player){
 	this.player = player;
 }
@@ -69,3 +78,24 @@ function URL(options){
 	}
 	return "/" + options.controller + "/" + options.action + params;
 };*/
+
+function BattleConsole(){
+	this.spell = new Object;
+	this.spell.name = 'attack';
+	this.player = new Object;
+	this.player.id = '1';
+	this.monster = new Object;
+	this.monster.id = '1';
+	this.messageStack = [];
+	this.baseURI = '/monster/battle';
+}
+
+BattleConsole.prototype.update = function (){
+	params = [ ['monsterId', this.monster.id], ['playerId', this.player.id], ['spellName', this.spell.name] ];
+	params = this.baseURI + arrayToParamString(params);
+	$.getJSON(params, function(data) {
+		entry = '<div class="battleLogEntry">You hit the enemy for ' + data.updatedValues.damageDealt.toString() + ' damage!</div>';
+		$(entry).appendTo($('.battleLogEntry:last'));
+		//alert(entry);
+    });
+};

@@ -41,9 +41,11 @@ class IndexController extends Zend_Controller_Action
 		$logger = Zend_Registry::get("logger");
 		$logger->log('This is a log message!', Zend_Log::INFO);
 		
+		$result = $questInstanceMapper->fetchActiveQuests(1);
+		
     	$options = $bootstrap->getOptions();
     	$app_secret = $options['security']['cryptography']['app_secret'];
-    	$this->view->appsecret = $app_secret;
+    	$this->view->appsecret = $result;
 	}
 	
 	public function loginAction()

@@ -49,6 +49,17 @@ class Application_Model_QuestInstanceMapper
         }
     }
     
+	public function increaseMany($models, $column, $amount)
+    {
+    	$where = array();
+    	$ids = array();
+    	foreach($models as $model)
+	    	$ids[] = $id = $model->getId();
+    	foreach($ids as $id)
+    		$where[] = $this->getDbTable()->getAdapter()->quoteInto("id = ?", $id); 
+    	$this->getDbTable()->update(array($column => new Zend_Db_Expr((string) $column+$amount)), $where);
+    }
+    
     public function save(Application_Model_QuestInstance $model)
     {
     	$data = array(
@@ -142,7 +153,35 @@ class Application_Model_QuestInstanceMapper
         }
         return $entries;
     }
-	
+    
+    public function fetchActiveQuests($playerId)
+    {
+    	$dbAdapter = $this->getDbTable();
+    	$select = $dbAdapter->select()
+		->from(array("qi" => "quest_instance"))
+		->setIntegrityCheck(false)
+		->join(array("q" => "quests"), "qi.questId = q.id", array("monsterlist"))
+		->where("qi.playerId = ?", $playerId)
+		->where("qi.status = ?", "accepted");
+		
+		$result = $dbAdapter->fetchAll($select);
+		
+		$entries   = array();
+        foreach ($result as $row) {
+        	//Zend_Registry::get("logger")->log((array)$row, Zend_Log::INFO);
+            $entry = new Application_Model_QuestInstance();
+            $entry->setId($row->id)
+                  ->setPlayerId($row->playerId)
+                  ->setQuestId($row->questId)
+                  ->setMonsterCount($row->monsterCount)
+                  ->setObjectiveStatus($row->objectiveStatus)
+                  ->setStatus($row->status)
+                  ->setMonsterlist(Irontouch_Util_Serialize::getSerialized($row->monsterlist));
+            $entries[] = $entry;
+        }
+		
+		return $entries;
+    }
 
 }
 

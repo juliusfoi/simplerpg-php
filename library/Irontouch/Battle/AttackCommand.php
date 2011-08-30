@@ -45,7 +45,7 @@ class Irontouch_Battle_AttackCommand extends Irontouch_Battle_BattleCommand
 			{
 				$monster = $battle->_monsterMapper->getOriginal($battle->_monster);
 				$battle->_monster->health -= (int) $battle->_player->attackDamage;
-				$battle->_player->health -= ($monster->attackDamage * ($battle->_player->defense / 100));
+				$battle->_player->health -= $battle->_damageDealt = ($monster->attackDamage * ($battle->_player->defense / 100));
 				if(!$battle->_monster->isAlive())
 				{
 					$battle->_monster->health = 0;
@@ -63,6 +63,7 @@ class Irontouch_Battle_AttackCommand extends Irontouch_Battle_BattleCommand
 	
 	public function onSuccess($message)
 	{
+		$this->_battle->checkConditions();
 	}
 	
 	public function onError($message)

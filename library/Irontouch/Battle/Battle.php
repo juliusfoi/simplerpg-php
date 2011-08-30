@@ -26,6 +26,7 @@ class Irontouch_Battle_Battle
 	public $_player;
 	public $_monsterMapper;
 	public $_playerMapper;
+	public $_damageDealt;
 	private $_commandProcessList;
 	//private $_condition;
 	
@@ -39,10 +40,10 @@ class Irontouch_Battle_Battle
 			throw new Exception("No monster model");
 		else
 			$this->_monster = $monster;
-		//$this->_condition = new Irontouch_Battle_Condition($this);
+		$this->_condition = new Irontouch_Battle_Condition($this);
 	}
 	
-	public function init()
+	public function init($commandList)
 	{
 		$this->_playerMapper = $playerMapper = new Application_Model_PlayerMapper();
 		$this->_monsterMapper = $monsterMapper = new Application_Model_MonsterInstanceMapper();
@@ -56,9 +57,10 @@ class Irontouch_Battle_Battle
 		$monsterMapper->find($this->_monster->id, $this->_monster);
 		
 		$this->finished = true;*/
+		$this->processCommands($commandList);
 		
-		//$this->_condition->checkForConditions();
-		$attackCommand = new Irontouch_Battle_AttackCommand($this);
+		//$attackCommand = new Irontouch_Battle_AttackCommand($this);
+		$this->_condition->checkForConditions();
 		
 		return $this;
 	}
@@ -67,7 +69,7 @@ class Irontouch_Battle_Battle
 	{
 		foreach ($commandList as $command) 
 		{
-			$this->_commandProcessList = new $command['name']($this, $command['autoRun']);
+			$this->_commandProcessList = new $command($this);
 		}
 		//$command = new Irontouch_Battle_AttackCommand($this);
 	}
@@ -80,6 +82,9 @@ class Irontouch_Battle_Battle
 	
 	public function getUpdatedValues()
 	{
-		return array("player" => (array)$this->_player, "monster" => (array)$this->_monster, "rewarded" => $this->rewarded);
+		if($this->_monster->isAlive())
+			return array("player" => (array)$this->_player, "monster" => (array)$this->_monster, "rewarded" => $this->rewarded, "damageDealt" => $this->_damageDealt);
+		else
+			return array("player" => (array)$this->_player, "monster" => "dead", "rewarded" => $this->rewarded);
 	}
 }

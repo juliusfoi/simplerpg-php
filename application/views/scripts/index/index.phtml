@@ -24,6 +24,13 @@
 	<?php endforeach; ?>
 </div>
 <div class="ironDebug" >
-	<span>Current APP_SECRET: <?php echo $this->appsecret; ?></span>
+	<span>Current APP_SECRET: 
+	<?php
+		foreach ($this->appsecret as $data) 
+		{
+			echo str_replace('*_', '', Zend_Json_Encoder::encode((array)$data));
+		}
+	?>
+	</span>
 </div>
 <div id="content" style="clear:both;visibility:hidden;"></div>

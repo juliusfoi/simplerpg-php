@@ -335,8 +335,17 @@
 					<a class="headBarLink" href="<?php echo $this->url(array('action' => 'profile', 'controller' => 'player') , null, true); ?>" >Profile</a>
 					<a class="headBarLink" href="<?php echo $this->url(array('action' => 'index', 'controller' => 'town') , null, true); ?>" >Town</a>
 					<a class="headBarLink travelLink" href="#" id="1" >Travel to Home</a>
-					<a class="headBarLink" href="<?php echo $this->url(array('action' => 'login', 'controller' => 'index', 'user' => 'yes') , null, true); ?>" >Login</a>
-					<a class="headBarLink" href="<?php echo $this->url(array('action' => 'create', 'controller' => 'user') , null, true); ?>" >Create new Account</a>
+					<?php 
+					if(!$this->loggedin)
+					{
+						echo '<a class="headBarLink" href="' . 
+								$this->url(array('action' => 'login', 'controller' => 'index', 'user' => 'yes') , null, true) 
+								. '" >Login</a>';
+						echo '<a class="headBarLink" href="' . 
+								$this->url(array('action' => 'create', 'controller' => 'user') , null, true) 
+								. '" >Create new Account</a>';								
+					}
+					?>
 					<span class="headBarLink headBarNotification" style="margin-left:100px;" >
 					You have <?php echo $this->newQuests; ?> new Quests!
 					</span>

@@ -52,7 +52,7 @@ class MonsterController extends Zend_Controller_Action
 		$monster->setId($id);
 		$player->setId(1);
 		$battle = new Irontouch_Battle_Battle($player, $monster);
-		$update = $battle->init()->getUpdatedValues();//->reward()->getUpdatedValues();
+		$update = $battle->init(array("Irontouch_Battle_"+ ucfirst($this->_getParam("spellName")) +"Command"))->getUpdatedValues();//->reward()->getUpdatedValues();
 		$this->view->updatedValues = array("updatedValues" => $update);
 	}
 
@@ -69,7 +69,31 @@ class MonsterController extends Zend_Controller_Action
 	
 	public function battleAction()
 	{
+		//$this->_helper->layout()->disableLayout();
+		$playerId = $this->_getParam("playerId", null);
+		$monsterId = $this->_getParam("monsterId", null);
 		
+		
+		$logger = Zend_Registry::get("logger");
+		$logger->log("Irontouch_Battle_" . ucfirst($this->_getParam("spellName")) . "Command", Zend_Log::INFO);
+		
+		
+		if($playerId == null && $monsterId == null)
+		{
+		}
+		else
+		{
+			$this->_helper->layout()->disableLayout();
+			$this->_helper->viewRenderer('attack');  
+			$monster = new Application_Model_MonsterInstance();
+			$player = new Application_Model_Player();
+			$monster->setId($monsterId);
+			$player->setId($playerId);
+			$battle = new Irontouch_Battle_Battle($player, $monster);
+			$update = $battle->init(array((string)"Irontouch_Battle_" . ucfirst($this->_getParam("spellName")) . "Command"))->getUpdatedValues();
+			$this->view->updatedValues = array("updatedValues" => $update);
+		}
+			
 	}
 
 

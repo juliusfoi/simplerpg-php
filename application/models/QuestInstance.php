@@ -9,6 +9,7 @@ class Application_Model_QuestInstance
 	protected $_monsterCount;
 	protected $_objectiveStatus;
 	protected $_status;
+	protected $_monsterlist;
 	
 	public function __construct(array $options = null)
     {
@@ -116,6 +117,17 @@ class Application_Model_QuestInstance
     public function importModelId(Application_Model_Quest $quest)
     {
     	$this->_questId = $quest->id;
+    }
+    
+    public function setMonsterlist($monsterlist)
+    {
+    	$this->_monsterlist = $monsterlist;
+    	return $this;
+    }
+    
+    public function getMonsterlist()
+    {
+    	return $this->_monsterlist;
     }
 
 }
