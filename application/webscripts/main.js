@@ -1,17 +1,20 @@
 function IrontouchGameSetup(){
-	try {
+	/*try {
 		$("body select").msDropDown();
 		} catch(e) {
 		alert(e.message);
 		}
-	$("body select").msDropDown({visibleRows:3, rowHeight:32});
+	//$("body select").msDropDown({visibleRows:3, rowHeight:32});*/
 	
 	battleConsole = new BattleConsole();
 	$('.spell').live('click', function(){
 	    battleConsole.update();
 	    //battleConsole.write(battleData);
 	});
-	
+	$('#response').live('click', function(){
+											$('.responsebox').hide();
+											$('#response').live('click', function(){$('.responsebox').show();});
+											});
 	loadingTravelFinished();
 	$('#loadingBattle').hide();
 	$('.locationPicture').css('width', '200px');
