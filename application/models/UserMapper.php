@@ -116,6 +116,8 @@ class Application_Model_UserMapper extends EntityMapper
     
     public function findSaltByName($username)
     {
+    	$logger = Zend_Registry::get("logger");
+		$logger->log("check", Zend_Log::INFO);
     	$table = $this->getDbTable();
     	$row = $table->fetchRow(
 			    $table->select()

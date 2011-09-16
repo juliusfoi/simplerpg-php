@@ -58,22 +58,32 @@ class IndexController extends Zend_Controller_Action
 		{
 			$username = $this->_getParam('username');
 			$password = $this->_getParam('password');
-			$mapper = new Application_Model_UserMapper();
-			$salt = $mapper->findSaltByName($username);
-			$user = new Application_Model_User();
-			$user->setUsername($username)->hash($password); // fail, really?
-			$user->findByName($username);
-			
-			$auth_adapter = new Irontouch_Auth_LoginAuth($username, $password, $user);
-			
-			$auth = Zend_Auth::getInstance();
-			if( $auth->authenticate($auth_adapter) )
+			if($username == "" || $username == null)
 			{
-				$this->_redirect(array('controller' => 'index' , 'action' => 'index', 'login' => 'done'));
+				
 			}
-			else
+			elseif ($password == "" || $password == null)
 			{
-				$this->_redirect(array('controller' => 'index' , 'action' => 'index', 'login' => 'failed'));
+			}
+			else	
+			{
+				$mapper = new Application_Model_UserMapper();
+				$salt = $mapper->findSaltByName($username);
+				$user = new Application_Model_User();
+				$user->setUsername($username)->hash($password); // fail, really?
+				$user->findByName($username);
+				
+				$auth_adapter = new Irontouch_Auth_LoginAuth($username, $password, $user);
+				
+				$auth = Zend_Auth::getInstance();
+				if( $auth->authenticate($auth_adapter) )
+				{
+					$this->_redirect(array('controller' => 'index' , 'action' => 'index', 'login' => 'done'));
+				}
+				else
+				{
+					$this->_redirect(array('controller' => 'index' , 'action' => 'index', 'login' => 'failed'));
+				}
 			}
 		}
 	}
